@@ -1,0 +1,3928 @@
+{
+    "stats": {
+        "0": {
+            "name": "strength",
+            "bits": 8,
+            "add": 32,
+            "param": 0
+        },
+        "1": {
+            "name": "energy",
+            "bits": 7,
+            "add": 32,
+            "param": 0
+        },
+        "2": {
+            "name": "dexterity",
+            "bits": 7,
+            "add": 32,
+            "param": 0
+        },
+        "3": {
+            "name": "vitality",
+            "bits": 7,
+            "add": 32,
+            "param": 0
+        },
+        "7": {
+            "name": "maxhp",
+            "bits": 9,
+            "add": 32,
+            "param": 0
+        },
+        "9": {
+            "name": "maxmana",
+            "bits": 8,
+            "add": 32,
+            "param": 0
+        },
+        "11": {
+            "name": "maxstamina",
+            "bits": 8,
+            "add": 32,
+            "param": 0
+        },
+        "16": {
+            "name": "item_armor_percent",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "17": {
+            "name": "item_maxdamage_percent",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "18": {
+            "name": "item_mindamage_percent",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "19": {
+            "name": "tohit",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "20": {
+            "name": "toblock",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "21": {
+            "name": "mindamage",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "22": {
+            "name": "maxdamage",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "23": {
+            "name": "secondary_mindamage",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "24": {
+            "name": "secondary_maxdamage",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "25": {
+            "name": "damagepercent",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "26": {
+            "name": "manarecovery",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "27": {
+            "name": "manarecoverybonus",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "28": {
+            "name": "staminarecoverybonus",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "31": {
+            "name": "armorclass",
+            "bits": 11,
+            "add": 10,
+            "param": 0
+        },
+        "32": {
+            "name": "armorclass_vs_missile",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "33": {
+            "name": "armorclass_vs_hth",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "34": {
+            "name": "normal_damage_reduction",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "35": {
+            "name": "magic_damage_reduction",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "36": {
+            "name": "damageresist",
+            "bits": 9,
+            "add": 200,
+            "param": 0
+        },
+        "37": {
+            "name": "magicresist",
+            "bits": 9,
+            "add": 200,
+            "param": 0
+        },
+        "38": {
+            "name": "maxmagicresist",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "39": {
+            "name": "fireresist",
+            "bits": 9,
+            "add": 200,
+            "param": 0
+        },
+        "40": {
+            "name": "maxfireresist",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "41": {
+            "name": "lightresist",
+            "bits": 9,
+            "add": 200,
+            "param": 0
+        },
+        "42": {
+            "name": "maxlightresist",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "43": {
+            "name": "coldresist",
+            "bits": 9,
+            "add": 200,
+            "param": 0
+        },
+        "44": {
+            "name": "maxcoldresist",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "45": {
+            "name": "poisonresist",
+            "bits": 9,
+            "add": 200,
+            "param": 0
+        },
+        "46": {
+            "name": "maxpoisonresist",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "48": {
+            "name": "firemindam",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "49": {
+            "name": "firemaxdam",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "50": {
+            "name": "lightmindam",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "51": {
+            "name": "lightmaxdam",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "52": {
+            "name": "magicmindam",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "53": {
+            "name": "magicmaxdam",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "54": {
+            "name": "coldmindam",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "55": {
+            "name": "coldmaxdam",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "56": {
+            "name": "coldlength",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "57": {
+            "name": "poisonmindam",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "58": {
+            "name": "poisonmaxdam",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "59": {
+            "name": "poisonlength",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "60": {
+            "name": "lifedrainmindam",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "62": {
+            "name": "manadrainmindam",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "67": {
+            "name": "velocitypercent",
+            "bits": 7,
+            "add": 30,
+            "param": 0
+        },
+        "68": {
+            "name": "attackrate",
+            "bits": 7,
+            "add": 30,
+            "param": 0
+        },
+        "71": {
+            "name": "value",
+            "bits": 8,
+            "add": 100,
+            "param": 0
+        },
+        "72": {
+            "name": "durability",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "73": {
+            "name": "maxdurability",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "74": {
+            "name": "hpregen",
+            "bits": 6,
+            "add": 30,
+            "param": 0
+        },
+        "75": {
+            "name": "item_maxdurability_percent",
+            "bits": 7,
+            "add": 20,
+            "param": 0
+        },
+        "76": {
+            "name": "item_maxhp_percent",
+            "bits": 6,
+            "add": 10,
+            "param": 0
+        },
+        "77": {
+            "name": "item_maxmana_percent",
+            "bits": 6,
+            "add": 10,
+            "param": 0
+        },
+        "78": {
+            "name": "item_attackertakesdamage",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "79": {
+            "name": "item_goldbonus",
+            "bits": 9,
+            "add": 100,
+            "param": 0
+        },
+        "80": {
+            "name": "item_magicbonus",
+            "bits": 8,
+            "add": 100,
+            "param": 0
+        },
+        "81": {
+            "name": "item_knockback",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "82": {
+            "name": "item_timeduration",
+            "bits": 9,
+            "add": 20,
+            "param": 0
+        },
+        "83": {
+            "name": "item_addclassskills",
+            "bits": 3,
+            "add": 0,
+            "param": 3
+        },
+        "85": {
+            "name": "item_addexperience",
+            "bits": 9,
+            "add": 50,
+            "param": 0
+        },
+        "86": {
+            "name": "item_healafterkill",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "87": {
+            "name": "item_reducedprices",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "88": {
+            "name": "item_doubleherbduration",
+            "bits": 1,
+            "add": 0,
+            "param": 0
+        },
+        "89": {
+            "name": "item_lightradius",
+            "bits": 4,
+            "add": 4,
+            "param": 0
+        },
+        "90": {
+            "name": "item_lightcolor",
+            "bits": 24,
+            "add": 0,
+            "param": 0
+        },
+        "91": {
+            "name": "item_req_percent",
+            "bits": 8,
+            "add": 100,
+            "param": 0
+        },
+        "92": {
+            "name": "item_levelreq",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "93": {
+            "name": "item_fasterattackrate",
+            "bits": 7,
+            "add": 20,
+            "param": 0
+        },
+        "94": {
+            "name": "item_levelreqpct",
+            "bits": 7,
+            "add": 64,
+            "param": 0
+        },
+        "96": {
+            "name": "item_fastermovevelocity",
+            "bits": 7,
+            "add": 20,
+            "param": 0
+        },
+        "97": {
+            "name": "item_nonclassskill",
+            "bits": 6,
+            "add": 0,
+            "param": 9
+        },
+        "98": {
+            "name": "state",
+            "bits": 1,
+            "add": 0,
+            "param": 8
+        },
+        "99": {
+            "name": "item_fastergethitrate",
+            "bits": 7,
+            "add": 20,
+            "param": 0
+        },
+        "102": {
+            "name": "item_fasterblockrate",
+            "bits": 7,
+            "add": 20,
+            "param": 0
+        },
+        "105": {
+            "name": "item_fastercastrate",
+            "bits": 7,
+            "add": 20,
+            "param": 0
+        },
+        "107": {
+            "name": "item_singleskill",
+            "bits": 3,
+            "add": 0,
+            "param": 9
+        },
+        "108": {
+            "name": "item_restinpeace",
+            "bits": 1,
+            "add": 0,
+            "param": 0
+        },
+        "109": {
+            "name": "curse_resistance",
+            "bits": 9,
+            "add": 0,
+            "param": 0
+        },
+        "110": {
+            "name": "item_poisonlengthresist",
+            "bits": 8,
+            "add": 20,
+            "param": 0
+        },
+        "111": {
+            "name": "item_normaldamage",
+            "bits": 9,
+            "add": 20,
+            "param": 0
+        },
+        "112": {
+            "name": "item_howl",
+            "bits": 7,
+            "add": -1,
+            "param": 0
+        },
+        "113": {
+            "name": "item_stupidity",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "114": {
+            "name": "item_damagetomana",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "115": {
+            "name": "item_ignoretargetac",
+            "bits": 1,
+            "add": 0,
+            "param": 0
+        },
+        "116": {
+            "name": "item_fractionaltargetac",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "117": {
+            "name": "item_preventheal",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "118": {
+            "name": "item_halffreezeduration",
+            "bits": 1,
+            "add": 0,
+            "param": 0
+        },
+        "119": {
+            "name": "item_tohit_percent",
+            "bits": 9,
+            "add": 20,
+            "param": 0
+        },
+        "120": {
+            "name": "item_damagetargetac",
+            "bits": 7,
+            "add": 128,
+            "param": 0
+        },
+        "121": {
+            "name": "item_demondamage_percent",
+            "bits": 9,
+            "add": 20,
+            "param": 0
+        },
+        "122": {
+            "name": "item_undeaddamage_percent",
+            "bits": 9,
+            "add": 20,
+            "param": 0
+        },
+        "123": {
+            "name": "item_demon_tohit",
+            "bits": 10,
+            "add": 128,
+            "param": 0
+        },
+        "124": {
+            "name": "item_undead_tohit",
+            "bits": 10,
+            "add": 128,
+            "param": 0
+        },
+        "125": {
+            "name": "item_throwable",
+            "bits": 1,
+            "add": 0,
+            "param": 0
+        },
+        "126": {
+            "name": "item_elemskill",
+            "bits": 3,
+            "add": 0,
+            "param": 3
+        },
+        "127": {
+            "name": "item_allskills",
+            "bits": 3,
+            "add": 0,
+            "param": 0
+        },
+        "128": {
+            "name": "item_attackertakeslightdamage",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "134": {
+            "name": "item_freeze",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "135": {
+            "name": "item_openwounds",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "136": {
+            "name": "item_crushingblow",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "137": {
+            "name": "item_kickdamage",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "138": {
+            "name": "item_manaafterkill",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "139": {
+            "name": "item_healafterdemonkill",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "140": {
+            "name": "item_extrablood",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "141": {
+            "name": "item_deadlystrike",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "142": {
+            "name": "item_absorbfire_percent",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "143": {
+            "name": "item_absorbfire",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "144": {
+            "name": "item_absorblight_percent",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "145": {
+            "name": "item_absorblight",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "146": {
+            "name": "item_absorbmagic_percent",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "147": {
+            "name": "item_absorbmagic",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "148": {
+            "name": "item_absorbcold_percent",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "149": {
+            "name": "item_absorbcold",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "150": {
+            "name": "item_slow",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "151": {
+            "name": "item_aura",
+            "bits": 5,
+            "add": 0,
+            "param": 9
+        },
+        "152": {
+            "name": "item_indesctructible",
+            "bits": 1,
+            "add": 0,
+            "param": 0
+        },
+        "153": {
+            "name": "item_cannotbefrozen",
+            "bits": 1,
+            "add": 0,
+            "param": 0
+        },
+        "154": {
+            "name": "item_staminadrainpct",
+            "bits": 7,
+            "add": 20,
+            "param": 0
+        },
+        "155": {
+            "name": "item_reanimate",
+            "bits": 7,
+            "add": 0,
+            "param": 10
+        },
+        "156": {
+            "name": "item_pierce",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "157": {
+            "name": "item_magicarrow",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "158": {
+            "name": "item_explosivearrow",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "159": {
+            "name": "item_throw_mindamage",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "160": {
+            "name": "item_throw_maxdamage",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "179": {
+            "name": "attack_vs_montype",
+            "bits": 9,
+            "add": 0,
+            "param": 10
+        },
+        "180": {
+            "name": "damage_vs_montype",
+            "bits": 9,
+            "add": 0,
+            "param": 10
+        },
+        "181": {
+            "name": "fade",
+            "bits": 3,
+            "add": 0,
+            "param": 0
+        },
+        "185": {
+            "name": "bonus_mindamage",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "186": {
+            "name": "bonus_maxdamage",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "187": {
+            "name": "item_pierce_cold_immunity",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "188": {
+            "name": "item_addskill_tab",
+            "bits": 3,
+            "add": 0,
+            "param": 16
+        },
+        "189": {
+            "name": "item_pierce_fire_immunity",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "190": {
+            "name": "item_pierce_light_immunity",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "191": {
+            "name": "item_pierce_poison_immunity",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "192": {
+            "name": "item_pierce_damage_immunity",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "193": {
+            "name": "item_pierce_magic_immunity",
+            "bits": 10,
+            "add": 0,
+            "param": 0
+        },
+        "194": {
+            "name": "item_numsockets",
+            "bits": 4,
+            "add": 0,
+            "param": 0
+        },
+        "195": {
+            "name": "item_skillonattack",
+            "bits": 7,
+            "add": 0,
+            "param": 16
+        },
+        "196": {
+            "name": "item_skillonkill",
+            "bits": 7,
+            "add": 0,
+            "param": 16
+        },
+        "197": {
+            "name": "item_skillondeath",
+            "bits": 7,
+            "add": 0,
+            "param": 16
+        },
+        "198": {
+            "name": "item_skillonhit",
+            "bits": 7,
+            "add": 0,
+            "param": 16
+        },
+        "199": {
+            "name": "item_skillonlevelup",
+            "bits": 7,
+            "add": 0,
+            "param": 16
+        },
+        "200": {
+            "name": "item_charge_noconsume",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "201": {
+            "name": "item_skillongethit",
+            "bits": 7,
+            "add": 0,
+            "param": 16
+        },
+        "204": {
+            "name": "item_charged_skill",
+            "bits": 16,
+            "add": 0,
+            "param": 16
+        },
+        "205": {
+            "name": "item_noconsume",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "206": {
+            "name": "passive_mastery_noconsume",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "207": {
+            "name": "passive_mastery_replenish_oncrit",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "213": {
+            "name": "passive_mastery_attack_speed",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "214": {
+            "name": "item_armor_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "215": {
+            "name": "item_armorpercent_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "216": {
+            "name": "item_hp_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "217": {
+            "name": "item_mana_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "218": {
+            "name": "item_maxdamage_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "219": {
+            "name": "item_maxdamage_percent_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "220": {
+            "name": "item_strength_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "221": {
+            "name": "item_dexterity_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "222": {
+            "name": "item_energy_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "223": {
+            "name": "item_vitality_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "224": {
+            "name": "item_tohit_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "225": {
+            "name": "item_tohitpercent_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "226": {
+            "name": "item_cold_damagemax_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "227": {
+            "name": "item_fire_damagemax_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "228": {
+            "name": "item_ltng_damagemax_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "229": {
+            "name": "item_pois_damagemax_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "230": {
+            "name": "item_resist_cold_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "231": {
+            "name": "item_resist_fire_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "232": {
+            "name": "item_resist_ltng_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "233": {
+            "name": "item_resist_pois_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "234": {
+            "name": "item_absorb_cold_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "235": {
+            "name": "item_absorb_fire_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "236": {
+            "name": "item_absorb_ltng_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "237": {
+            "name": "item_absorb_pois_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "238": {
+            "name": "item_thorns_perlevel",
+            "bits": 5,
+            "add": 0,
+            "param": 0
+        },
+        "239": {
+            "name": "item_find_gold_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "240": {
+            "name": "item_find_magic_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "241": {
+            "name": "item_regenstamina_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "242": {
+            "name": "item_stamina_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "243": {
+            "name": "item_damage_demon_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "244": {
+            "name": "item_damage_undead_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "245": {
+            "name": "item_tohit_demon_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "246": {
+            "name": "item_tohit_undead_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "247": {
+            "name": "item_crushingblow_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "248": {
+            "name": "item_openwounds_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "249": {
+            "name": "item_kick_damage_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "250": {
+            "name": "item_deadlystrike_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "252": {
+            "name": "item_replenish_durability",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "253": {
+            "name": "item_replenish_quantity",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "254": {
+            "name": "item_extra_stack",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "268": {
+            "name": "item_armor_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "269": {
+            "name": "item_armorpercent_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "270": {
+            "name": "item_hp_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "271": {
+            "name": "item_mana_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "272": {
+            "name": "item_maxdamage_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "273": {
+            "name": "item_maxdamage_percent_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "274": {
+            "name": "item_strength_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "275": {
+            "name": "item_dexterity_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "276": {
+            "name": "item_energy_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "277": {
+            "name": "item_vitality_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "278": {
+            "name": "item_tohit_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "279": {
+            "name": "item_tohitpercent_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "280": {
+            "name": "item_cold_damagemax_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "281": {
+            "name": "item_fire_damagemax_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "282": {
+            "name": "item_ltng_damagemax_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "283": {
+            "name": "item_pois_damagemax_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "284": {
+            "name": "item_resist_cold_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "285": {
+            "name": "item_resist_fire_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "286": {
+            "name": "item_resist_ltng_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "287": {
+            "name": "item_resist_pois_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "288": {
+            "name": "item_absorb_cold_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "289": {
+            "name": "item_absorb_fire_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "290": {
+            "name": "item_absorb_ltng_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "291": {
+            "name": "item_absorb_pois_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "292": {
+            "name": "item_find_gold_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "293": {
+            "name": "item_find_magic_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "294": {
+            "name": "item_regenstamina_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "295": {
+            "name": "item_stamina_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "296": {
+            "name": "item_damage_demon_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "297": {
+            "name": "item_damage_undead_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "298": {
+            "name": "item_tohit_demon_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "299": {
+            "name": "item_tohit_undead_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "300": {
+            "name": "item_crushingblow_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "301": {
+            "name": "item_openwounds_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "302": {
+            "name": "item_kick_damage_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "303": {
+            "name": "item_deadlystrike_bytime",
+            "bits": 22,
+            "add": 0,
+            "param": 0
+        },
+        "305": {
+            "name": "item_pierce_cold",
+            "bits": 8,
+            "add": 50,
+            "param": 0
+        },
+        "306": {
+            "name": "item_pierce_fire",
+            "bits": 8,
+            "add": 50,
+            "param": 0
+        },
+        "307": {
+            "name": "item_pierce_ltng",
+            "bits": 8,
+            "add": 50,
+            "param": 0
+        },
+        "308": {
+            "name": "item_pierce_pois",
+            "bits": 8,
+            "add": 50,
+            "param": 0
+        },
+        "324": {
+            "name": "item_extra_charges",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "329": {
+            "name": "passive_fire_mastery",
+            "bits": 9,
+            "add": 50,
+            "param": 0
+        },
+        "330": {
+            "name": "passive_ltng_mastery",
+            "bits": 9,
+            "add": 50,
+            "param": 0
+        },
+        "331": {
+            "name": "passive_cold_mastery",
+            "bits": 9,
+            "add": 50,
+            "param": 0
+        },
+        "332": {
+            "name": "passive_pois_mastery",
+            "bits": 9,
+            "add": 50,
+            "param": 0
+        },
+        "333": {
+            "name": "passive_fire_pierce",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "334": {
+            "name": "passive_ltng_pierce",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "335": {
+            "name": "passive_cold_pierce",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "336": {
+            "name": "passive_pois_pierce",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "337": {
+            "name": "passive_critical_strike",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "338": {
+            "name": "passive_dodge",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "339": {
+            "name": "passive_avoid",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "340": {
+            "name": "passive_evade",
+            "bits": 7,
+            "add": 0,
+            "param": 0
+        },
+        "341": {
+            "name": "passive_warmth",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "342": {
+            "name": "passive_mastery_melee_th",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "343": {
+            "name": "passive_mastery_melee_dmg",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "344": {
+            "name": "passive_mastery_melee_crit",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "345": {
+            "name": "passive_mastery_throw_th",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "346": {
+            "name": "passive_mastery_throw_dmg",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "347": {
+            "name": "passive_mastery_throw_crit",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "348": {
+            "name": "passive_weaponblock",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "349": {
+            "name": "passive_summon_resist",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "356": {
+            "name": "questitemdifficulty",
+            "bits": 2,
+            "add": 0,
+            "param": 0
+        },
+        "357": {
+            "name": "passive_mag_mastery",
+            "bits": 9,
+            "add": 50,
+            "param": 0
+        },
+        "358": {
+            "name": "passive_mag_pierce",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "365": {
+            "name": "item_magic_damagemax_perlevel",
+            "bits": 6,
+            "add": 0,
+            "param": 0
+        },
+        "366": {
+            "name": "passive_dmg_pierce",
+            "bits": 8,
+            "add": 0,
+            "param": 0
+        },
+        "500": {
+            "name": "item_meleeareadamage",
+            "bits": 7,
+            "add": 0,
+            "param": 16
+        },
+        "501": {
+            "name": "melee_maxdamage_percent",
+            "bits": 18,
+            "add": 512,
+            "param": 0
+        },
+        "502": {
+            "name": "melee_mindamage_percent",
+            "bits": 18,
+            "add": 512,
+            "param": 0
+        }
+    },
+    "skills": {
+        "0": "Attack",
+        "1": "Kick",
+        "2": "Throw",
+        "3": "Unsummon",
+        "4": "Left Hand Throw",
+        "5": "Left Hand Swing",
+        "6": "Magic Arrow",
+        "7": "Fire Arrow",
+        "8": "Inner Sight",
+        "9": "Critical Strike",
+        "10": "Jab",
+        "11": "Cold Arrow",
+        "12": "Multiple Shot",
+        "13": "Dodge",
+        "14": "Power Strike",
+        "15": "Poison Javelin",
+        "16": "Exploding Arrow",
+        "17": "Slow Missiles",
+        "18": "Avoid",
+        "19": "Impale",
+        "20": "Lightning Bolt",
+        "21": "Ice Arrow",
+        "22": "Guided Arrow",
+        "23": "Penetrate",
+        "24": "Charged Strike",
+        "25": "Plague Javelin",
+        "26": "Strafe",
+        "27": "Immolation Arrow",
+        "28": "Dopplezon",
+        "29": "Evade",
+        "30": "Fend",
+        "31": "Freezing Arrow",
+        "32": "Valkyrie",
+        "33": "Pierce",
+        "34": "Lightning Strike",
+        "35": "Lightning Fury",
+        "36": "Fire Bolt",
+        "37": "Warmth",
+        "38": "Charged Bolt",
+        "39": "Ice Bolt",
+        "40": "Frozen Armor",
+        "41": "Inferno",
+        "42": "Static Field",
+        "43": "Telekinesis",
+        "44": "Frost Nova",
+        "45": "Ice Blast",
+        "46": "Blaze",
+        "47": "Fire Ball",
+        "48": "Nova",
+        "49": "Lightning",
+        "50": "Shiver Armor",
+        "51": "Fire Wall",
+        "52": "Enchant",
+        "53": "Chain Lightning",
+        "54": "Teleport",
+        "55": "Glacial Spike",
+        "56": "Meteor",
+        "57": "Thunder Storm",
+        "58": "Energy Shield",
+        "59": "Blizzard",
+        "60": "Chilling Armor",
+        "61": "Fire Mastery",
+        "62": "Hydra",
+        "63": "Lightning Mastery",
+        "64": "Frozen Orb",
+        "65": "Cold Mastery",
+        "66": "Amplify Damage",
+        "67": "Teeth",
+        "68": "Bone Armor",
+        "69": "Skeleton Mastery",
+        "70": "Raise Skeleton",
+        "71": "Dim Vision",
+        "72": "Weaken",
+        "73": "Poison Dagger",
+        "74": "Corpse Explosion",
+        "75": "Clay Golem",
+        "76": "Iron Maiden",
+        "77": "Terror",
+        "78": "Bone Wall",
+        "79": "Golem Mastery",
+        "80": "Raise Skeletal Mage",
+        "81": "Confuse",
+        "82": "Life Tap",
+        "83": "Poison Explosion",
+        "84": "Bone Spear",
+        "85": "BloodGolem",
+        "86": "Attract",
+        "87": "Decrepify",
+        "88": "Bone Prison",
+        "89": "Summon Resist",
+        "90": "IronGolem",
+        "91": "Lower Resist",
+        "92": "Poison Nova",
+        "93": "Bone Spirit",
+        "94": "FireGolem",
+        "95": "Revive",
+        "96": "Sacrifice",
+        "97": "Smite",
+        "98": "Might",
+        "99": "Prayer",
+        "100": "Resist Fire",
+        "101": "Holy Bolt",
+        "102": "Holy Fire",
+        "103": "Thorns",
+        "104": "Defiance",
+        "105": "Resist Cold",
+        "106": "Zeal",
+        "107": "Charge",
+        "108": "Blessed Aim",
+        "109": "Cleansing",
+        "110": "Resist Lightning",
+        "111": "Vengeance",
+        "112": "Blessed Hammer",
+        "113": "Concentration",
+        "114": "Holy Freeze",
+        "115": "Vigor",
+        "116": "Conversion",
+        "117": "Holy Shield",
+        "118": "Holy Shock",
+        "119": "Sanctuary",
+        "120": "Meditation",
+        "121": "Fist of the Heavens",
+        "122": "Fanaticism",
+        "123": "Conviction",
+        "124": "Redemption",
+        "125": "Salvation",
+        "126": "Bash",
+        "127": "Blade Mastery",
+        "128": "Axe Mastery",
+        "129": "Mace Mastery",
+        "130": "Howl",
+        "131": "Find Potion",
+        "132": "Leap",
+        "133": "Double Swing",
+        "134": "Pole Arm Mastery",
+        "135": "Throwing Mastery",
+        "136": "Spear Mastery",
+        "137": "Taunt",
+        "138": "Shout",
+        "139": "Stun",
+        "140": "Double Throw",
+        "141": "Increased Stamina",
+        "142": "Find Item",
+        "143": "Leap Attack",
+        "144": "Concentrate",
+        "145": "Iron Skin",
+        "146": "Battle Cry",
+        "147": "Frenzy",
+        "148": "Increased Speed",
+        "149": "Battle Orders",
+        "150": "Grim Ward",
+        "151": "Whirlwind",
+        "152": "Berserk",
+        "153": "Natural Resistance",
+        "154": "War Cry",
+        "155": "Battle Command",
+        "156": "Fire Hit",
+        "157": "UnHolyBolt",
+        "158": "SkeletonRaise",
+        "159": "MaggotEgg",
+        "160": "ShamanFire",
+        "161": "MagottUp",
+        "162": "MagottDown",
+        "163": "MagottLay",
+        "164": "AndrialSpray",
+        "165": "Jump",
+        "166": "Swarm Move",
+        "167": "Nest",
+        "168": "Quick Strike",
+        "169": "VampireFireball",
+        "170": "VampireFirewall",
+        "171": "VampireMeteor",
+        "172": "GargoyleTrap",
+        "173": "SpiderLay",
+        "174": "VampireHeal",
+        "175": "VampireRaise",
+        "176": "Submerge",
+        "177": "FetishAura",
+        "178": "FetishInferno",
+        "179": "ZakarumHeal",
+        "180": "Emerge",
+        "181": "Resurrect",
+        "182": "Bestow",
+        "183": "MissileSkill1",
+        "184": "MonTeleport",
+        "185": "PrimeLightning",
+        "186": "PrimeBolt",
+        "187": "PrimeBlaze",
+        "188": "PrimeFirewall",
+        "189": "PrimeSpike",
+        "190": "PrimeIceNova",
+        "191": "PrimePoisonball",
+        "192": "PrimePoisonNova",
+        "193": "DiabLight",
+        "194": "DiabCold",
+        "195": "DiabFire",
+        "196": "FingerMageSpider",
+        "197": "DiabWall",
+        "198": "DiabRun",
+        "199": "DiabPrison",
+        "200": "PoisonBallTrap",
+        "201": "AndyPoisonBolt",
+        "202": "HireableMissile",
+        "203": "DesertTurret",
+        "204": "ArcaneTower",
+        "205": "MonBlizzard",
+        "206": "Mosquito",
+        "207": "CursedBallTrapRight",
+        "208": "CursedBallTrapLeft",
+        "209": "MonFrozenArmor",
+        "210": "MonBoneArmor",
+        "211": "MonBoneSpirit",
+        "212": "MonCurseCast",
+        "213": "HellMeteor",
+        "214": "RegurgitatorEat",
+        "215": "MonFrenzy",
+        "216": "QueenDeath",
+        "217": "Scroll of Identify",
+        "218": "Book of Identify",
+        "219": "Scroll of Townportal",
+        "220": "Book of Townportal",
+        "221": "Raven",
+        "222": "Plague Poppy",
+        "223": "Wearwolf",
+        "224": "Shape Shifting",
+        "225": "Firestorm",
+        "226": "Oak Sage",
+        "227": "Summon Spirit Wolf",
+        "228": "Wearbear",
+        "229": "Molten Boulder",
+        "230": "Arctic Blast",
+        "231": "Cycle of Life",
+        "232": "Feral Rage",
+        "233": "Maul",
+        "234": "Eruption",
+        "235": "Cyclone Armor",
+        "236": "Heart of Wolverine",
+        "237": "Summon Fenris",
+        "238": "Rabies",
+        "239": "Fire Claws",
+        "240": "Twister",
+        "241": "Vines",
+        "242": "Hunger",
+        "243": "Shock Wave",
+        "244": "Volcano",
+        "245": "Tornado",
+        "246": "Spirit of Barbs",
+        "247": "Summon Grizzly",
+        "248": "Fury",
+        "249": "Armageddon",
+        "250": "Hurricane",
+        "251": "Fire Trauma",
+        "252": "Claw Mastery",
+        "253": "Psychic Hammer",
+        "254": "Tiger Strike",
+        "255": "Dragon Talon",
+        "256": "Shock Field",
+        "257": "Blade Sentinel",
+        "258": "Quickness",
+        "259": "Fists of Fire",
+        "260": "Dragon Claw",
+        "261": "Charged Bolt Sentry",
+        "262": "Wake of Fire Sentry",
+        "263": "Weapon Block",
+        "264": "Cloak of Shadows",
+        "265": "Cobra Strike",
+        "266": "Blade Fury",
+        "267": "Fade",
+        "268": "Shadow Warrior",
+        "269": "Claws of Thunder",
+        "270": "Dragon Tail",
+        "271": "Lightning Sentry",
+        "272": "Inferno Sentry",
+        "273": "Mind Blast",
+        "274": "Blades of Ice",
+        "275": "Dragon Flight",
+        "276": "Death Sentry",
+        "277": "Blade Shield",
+        "278": "Venom",
+        "279": "Shadow Master",
+        "280": "Royal Strike",
+        "281": "Wake Of Destruction Sentry",
+        "282": "Imp Inferno",
+        "283": "Imp Fireball",
+        "284": "Baal Taunt",
+        "285": "Baal Corpse Explode",
+        "286": "Baal Monster Spawn",
+        "287": "Catapult Charged Ball",
+        "288": "Catapult Spike Ball",
+        "289": "Suck Blood",
+        "290": "Cry Help",
+        "291": "Healing Vortex",
+        "292": "Teleport 2",
+        "293": "Self-resurrect",
+        "294": "Vine Attack",
+        "295": "Overseer Whip",
+        "296": "Barbs Aura",
+        "297": "Wolverine Aura",
+        "298": "Oak Sage Aura",
+        "299": "Imp Fire Missile",
+        "300": "Impregnate",
+        "301": "Siege Beast Stomp",
+        "302": "MinionSpawner",
+        "303": "CatapultBlizzard",
+        "304": "CatapultPlague",
+        "305": "CatapultMeteor",
+        "306": "BoltSentry",
+        "307": "CorpseCycler",
+        "308": "DeathMaul",
+        "309": "Defense Curse",
+        "310": "Blood Mana",
+        "311": "mon inferno sentry",
+        "312": "mon death sentry",
+        "313": "sentry lightning",
+        "314": "fenris rage",
+        "315": "Baal Tentacle",
+        "316": "Baal Nova",
+        "317": "Baal Inferno",
+        "318": "Baal Cold Missiles",
+        "319": "MegademonInferno",
+        "320": "EvilHutSpawner",
+        "321": "CountessFirewall",
+        "322": "ImpBolt",
+        "323": "Horror Arctic Blast",
+        "324": "death sentry ltng",
+        "325": "VineCycler",
+        "326": "BearSmite",
+        "327": "Resurrect2",
+        "328": "BloodLordFrenzy",
+        "329": "Baal Teleport",
+        "330": "Imp Teleport",
+        "331": "Baal Clone Teleport",
+        "332": "ZakarumLightning",
+        "333": "VampireMissile",
+        "334": "MephistoMissile",
+        "335": "DoomKnightMissile",
+        "336": "RogueMissile",
+        "337": "HydraMissile",
+        "338": "NecromageMissile",
+        "339": "MonBow",
+        "340": "MonFireArrow",
+        "341": "MonColdArrow",
+        "342": "MonExplodingArrow",
+        "343": "MonFreezingArrow",
+        "344": "MonPowerStrike",
+        "345": "SuccubusBolt",
+        "346": "MephFrostNova",
+        "347": "MonIceSpear",
+        "348": "ShamanIce",
+        "349": "Diablogeddon",
+        "350": "Delerium Change",
+        "351": "NihlathakCorpseExplosion",
+        "352": "SerpentCharge",
+        "353": "Trap Nova",
+        "354": "UnHolyBoltEx",
+        "355": "ShamanFireEx",
+        "356": "Imp Fire Missile Ex",
+        "357": "Interact",
+        "358": "Loot",
+        "359": "TownPortal",
+        "360": "EmoteWheel",
+        "361": "SwapWeapons",
+        "362": "Map",
+        "363": "ShowItems",
+        "364": "RunToggle",
+        "365": "MonHolyFreeze",
+        "366": "MonLeap",
+        "367": "MonLeapAttack",
+        "368": "MonHolyFire",
+        "369": "MonHolyShock",
+        "370": "CubeLoot",
+        "371": "Mark of the Bear",
+        "372": "Mark of the Wolf",
+        "373": "Summon Goatman",
+        "374": "Demonic Mastery",
+        "375": "Death Mark",
+        "376": "Summon Tainted",
+        "377": "Summon Defiler",
+        "378": "Blood Oath",
+        "379": "Engorge",
+        "380": "Blood Boil",
+        "381": "Consume",
+        "382": "Bind Demon",
+        "383": "Levitate",
+        "384": "Eldritch Blast",
+        "385": "Hex Bane",
+        "386": "Hex Siphon",
+        "387": "Psychic Ward",
+        "388": "Echoing Strike",
+        "389": "Hex Purge",
+        "390": "Blade Warp",
+        "391": "Cleave",
+        "392": "Mirrored Blades",
+        "393": "Sigil Lethargy",
+        "394": "Ring of Fire",
+        "395": "Miasma Bolt",
+        "396": "Sigil Rancor",
+        "397": "Enhanced Entropy",
+        "398": "Flame Wave",
+        "399": "Miasma Chains",
+        "400": "Sigil Death",
+        "401": "Apocalypse",
+        "402": "Abyss",
+        "403": "Sigil Death Explosion",
+        "404": "Hex Purge Explosion",
+        "405": "Health Link",
+        "406": "Cold Fissure",
+        "407": "Korlic's Leap Attack",
+        "408": "Cold Enchant",
+        "409": "Lightning Enchant",
+        "410": "Talic's Whirlwind",
+        "411": "Townportal O Skill",
+        "412": "Fire Twisters",
+        "413": "Colossal Volcano",
+        "414": "Colossal Thunder Storm",
+        "415": "UberAncientsHeal",
+        "416": "Goatman Stun",
+        "417": "Goatman Frenzy",
+        "418": "Goatman Berserk",
+        "419": "Goatman Cleave",
+        "420": "Tainted Resist Fire",
+        "421": "Tainted Fire Bolt",
+        "422": "Tainted Fire Ball",
+        "423": "Talic's Fire Pierce",
+        "424": "Madawc's Lightning Pierce",
+        "425": "Korlic's Cold Pierce",
+        "426": "Charged Bolt Disk",
+        "427": "Korlic's Bash",
+        "428": "HeraldThorns",
+        "429": "Melee Area Damage"
+    },
+    "items": {
+        "hax": {
+            "name": "Hand Axe",
+            "type": "axe"
+        },
+        "axe": {
+            "name": "Axe",
+            "type": "axe"
+        },
+        "2ax": {
+            "name": "Double Axe",
+            "type": "axe"
+        },
+        "mpi": {
+            "name": "Military Pick",
+            "type": "axe"
+        },
+        "wax": {
+            "name": "War Axe",
+            "type": "axe"
+        },
+        "lax": {
+            "name": "Large Axe",
+            "type": "axe"
+        },
+        "bax": {
+            "name": "Broad Axe ",
+            "type": "axe"
+        },
+        "btx": {
+            "name": "Battle Axe",
+            "type": "axe"
+        },
+        "gax": {
+            "name": "Great Axe",
+            "type": "axe"
+        },
+        "gix": {
+            "name": "Giant Axe",
+            "type": "axe"
+        },
+        "wnd": {
+            "name": "Wand",
+            "type": "wand"
+        },
+        "ywn": {
+            "name": "Yew Wand",
+            "type": "wand"
+        },
+        "bwn": {
+            "name": "Bone Wand",
+            "type": "wand"
+        },
+        "gwn": {
+            "name": "Grim Wand",
+            "type": "wand"
+        },
+        "clb": {
+            "name": "Club",
+            "type": "club"
+        },
+        "scp": {
+            "name": "Scepter",
+            "type": "scep"
+        },
+        "gsc": {
+            "name": "Grand Scepter",
+            "type": "scep"
+        },
+        "wsp": {
+            "name": "War Scepter",
+            "type": "scep"
+        },
+        "spc": {
+            "name": "Spiked Club",
+            "type": "club"
+        },
+        "mac": {
+            "name": "Mace",
+            "type": "mace"
+        },
+        "mst": {
+            "name": "Morning Star",
+            "type": "mace"
+        },
+        "fla": {
+            "name": "Flail",
+            "type": "mace"
+        },
+        "whm": {
+            "name": "War Hammer",
+            "type": "hamm"
+        },
+        "mau": {
+            "name": "Maul",
+            "type": "hamm"
+        },
+        "gma": {
+            "name": "Great Maul",
+            "type": "hamm"
+        },
+        "ssd": {
+            "name": "Short Sword",
+            "type": "swor"
+        },
+        "scm": {
+            "name": "Scimitar",
+            "type": "swor"
+        },
+        "sbr": {
+            "name": "Saber",
+            "type": "swor"
+        },
+        "flc": {
+            "name": "Falchion",
+            "type": "swor"
+        },
+        "crs": {
+            "name": "Crystal Sword",
+            "type": "swor"
+        },
+        "bsd": {
+            "name": "Broad Sword",
+            "type": "swor"
+        },
+        "lsd": {
+            "name": "Long Sword ",
+            "type": "swor"
+        },
+        "wsd": {
+            "name": "War Sword",
+            "type": "swor"
+        },
+        "2hs": {
+            "name": "Two-Handed Sword",
+            "type": "swor"
+        },
+        "clm": {
+            "name": "Claymore",
+            "type": "swor"
+        },
+        "gis": {
+            "name": "Giant Sword",
+            "type": "swor"
+        },
+        "bsw": {
+            "name": "Bastard Sword",
+            "type": "swor"
+        },
+        "flb": {
+            "name": "Flamberge",
+            "type": "swor"
+        },
+        "gsd": {
+            "name": "Great Sword",
+            "type": "swor"
+        },
+        "dgr": {
+            "name": "Dagger",
+            "type": "knif"
+        },
+        "dir": {
+            "name": "Dirk",
+            "type": "knif"
+        },
+        "kri": {
+            "name": "Kriss",
+            "type": "knif"
+        },
+        "bld": {
+            "name": "Blade",
+            "type": "knif"
+        },
+        "tkf": {
+            "name": "Throwing Knife",
+            "type": "tkni"
+        },
+        "tax": {
+            "name": "Throwing Axe",
+            "type": "taxe"
+        },
+        "bkf": {
+            "name": "Balanced Knife",
+            "type": "tkni"
+        },
+        "bal": {
+            "name": "Balanced Axe",
+            "type": "taxe"
+        },
+        "jav": {
+            "name": "Javelin",
+            "type": "jave"
+        },
+        "pil": {
+            "name": "Pilum",
+            "type": "jave"
+        },
+        "ssp": {
+            "name": "Short Spear",
+            "type": "jave"
+        },
+        "glv": {
+            "name": "Glaive",
+            "type": "jave"
+        },
+        "tsp": {
+            "name": "Throwing Spear",
+            "type": "jave"
+        },
+        "spr": {
+            "name": "Spear",
+            "type": "spea"
+        },
+        "tri": {
+            "name": "Trident",
+            "type": "spea"
+        },
+        "brn": {
+            "name": "Brandistock",
+            "type": "spea"
+        },
+        "spt": {
+            "name": "Spetum",
+            "type": "spea"
+        },
+        "pik": {
+            "name": "Pike",
+            "type": "spea"
+        },
+        "bar": {
+            "name": "Bardiche",
+            "type": "pole"
+        },
+        "vou": {
+            "name": "Voulge",
+            "type": "pole"
+        },
+        "scy": {
+            "name": "Scythe",
+            "type": "pole"
+        },
+        "pax": {
+            "name": "Poleaxe",
+            "type": "pole"
+        },
+        "hal": {
+            "name": "Halberd",
+            "type": "pole"
+        },
+        "wsc": {
+            "name": "War Scythe",
+            "type": "pole"
+        },
+        "sst": {
+            "name": "Short Staff",
+            "type": "staf"
+        },
+        "lst": {
+            "name": "Long Staff",
+            "type": "staf"
+        },
+        "cst": {
+            "name": "Gnarled Staff",
+            "type": "staf"
+        },
+        "bst": {
+            "name": "Battle Staff",
+            "type": "staf"
+        },
+        "wst": {
+            "name": "War Staff",
+            "type": "staf"
+        },
+        "sbw": {
+            "name": "Short Bow",
+            "type": "bow"
+        },
+        "hbw": {
+            "name": "Hunter's Bow",
+            "type": "bow"
+        },
+        "lbw": {
+            "name": "Long Bow",
+            "type": "bow"
+        },
+        "cbw": {
+            "name": "Composite Bow",
+            "type": "bow"
+        },
+        "sbb": {
+            "name": "Short Battle Bow",
+            "type": "bow"
+        },
+        "lbb": {
+            "name": "Long Battle Bow",
+            "type": "bow"
+        },
+        "swb": {
+            "name": "Short War Bow",
+            "type": "bow"
+        },
+        "lwb": {
+            "name": "Long War Bow",
+            "type": "bow"
+        },
+        "lxb": {
+            "name": "Light Crossbow",
+            "type": "xbow"
+        },
+        "mxb": {
+            "name": "Crossbow",
+            "type": "xbow"
+        },
+        "hxb": {
+            "name": "Heavy Crossbow",
+            "type": "xbow"
+        },
+        "rxb": {
+            "name": "Repeating Crossbow",
+            "type": "xbow"
+        },
+        "gps": {
+            "name": "Rancid Gas Potion",
+            "type": "tpot"
+        },
+        "ops": {
+            "name": "Oil Potion",
+            "type": "tpot"
+        },
+        "gpm": {
+            "name": "Choking Gas Potion",
+            "type": "tpot"
+        },
+        "opm": {
+            "name": "Exploding Potion",
+            "type": "tpot"
+        },
+        "gpl": {
+            "name": "Strangling Gas Potion",
+            "type": "tpot"
+        },
+        "opl": {
+            "name": "Fulminating Potion",
+            "type": "tpot"
+        },
+        "d33": {
+            "name": "Decoy Gidbinn",
+            "type": "knif"
+        },
+        "g33": {
+            "name": "The Gidbinn",
+            "type": "knif"
+        },
+        "leg": {
+            "name": "Wirt's Leg",
+            "type": "club"
+        },
+        "hdm": {
+            "name": "Horadric Malus",
+            "type": "hamm"
+        },
+        "hfh": {
+            "name": "Hellforge Hammer",
+            "type": "hamm"
+        },
+        "hst": {
+            "name": "Horadric Staff",
+            "type": "staf"
+        },
+        "msf": {
+            "name": "Staff of Kings",
+            "type": "staf"
+        },
+        "9ha": {
+            "name": "Hatchet",
+            "type": "axe"
+        },
+        "9ax": {
+            "name": "Cleaver",
+            "type": "axe"
+        },
+        "92a": {
+            "name": "Twin Axe",
+            "type": "axe"
+        },
+        "9mp": {
+            "name": "Crowbill",
+            "type": "axe"
+        },
+        "9wa": {
+            "name": "Naga",
+            "type": "axe"
+        },
+        "9la": {
+            "name": "Military Axe",
+            "type": "axe"
+        },
+        "9ba": {
+            "name": "Bearded Axe ",
+            "type": "axe"
+        },
+        "9bt": {
+            "name": "Tabar",
+            "type": "axe"
+        },
+        "9ga": {
+            "name": "Gothic Axe",
+            "type": "axe"
+        },
+        "9gi": {
+            "name": "Ancient Axe",
+            "type": "axe"
+        },
+        "9wn": {
+            "name": "Burnt Wand",
+            "type": "wand"
+        },
+        "9yw": {
+            "name": "Petrified Wand",
+            "type": "wand"
+        },
+        "9bw": {
+            "name": "Tomb Wand",
+            "type": "wand"
+        },
+        "9gw": {
+            "name": "Grave Wand",
+            "type": "wand"
+        },
+        "9cl": {
+            "name": "Cudgel",
+            "type": "club"
+        },
+        "9sc": {
+            "name": "Rune Scepter",
+            "type": "scep"
+        },
+        "9qs": {
+            "name": "Holy Water Sprinkler",
+            "type": "scep"
+        },
+        "9ws": {
+            "name": "Divine Scepter",
+            "type": "scep"
+        },
+        "9sp": {
+            "name": "Barbed Club",
+            "type": "club"
+        },
+        "9ma": {
+            "name": "Flanged Mace",
+            "type": "mace"
+        },
+        "9mt": {
+            "name": "Jagged Star",
+            "type": "mace"
+        },
+        "9fl": {
+            "name": "Knout",
+            "type": "mace"
+        },
+        "9wh": {
+            "name": "Battle Hammer",
+            "type": "hamm"
+        },
+        "9m9": {
+            "name": "War Club",
+            "type": "hamm"
+        },
+        "9gm": {
+            "name": "Martel de Fer",
+            "type": "hamm"
+        },
+        "9ss": {
+            "name": "Gladius",
+            "type": "swor"
+        },
+        "9sm": {
+            "name": "Cutlass",
+            "type": "swor"
+        },
+        "9sb": {
+            "name": "Shamshir",
+            "type": "swor"
+        },
+        "9fc": {
+            "name": "Tulwar",
+            "type": "swor"
+        },
+        "9cr": {
+            "name": "Dimensional Blade",
+            "type": "swor"
+        },
+        "9bs": {
+            "name": "Battle Sword",
+            "type": "swor"
+        },
+        "9ls": {
+            "name": "Rune Sword",
+            "type": "swor"
+        },
+        "9wd": {
+            "name": "Ancient Sword",
+            "type": "swor"
+        },
+        "92h": {
+            "name": "Espandon",
+            "type": "swor"
+        },
+        "9cm": {
+            "name": "Dacian Falx",
+            "type": "swor"
+        },
+        "9gs": {
+            "name": "Tusk Sword",
+            "type": "swor"
+        },
+        "9b9": {
+            "name": "Gothic Sword",
+            "type": "swor"
+        },
+        "9fb": {
+            "name": "Zweihander",
+            "type": "swor"
+        },
+        "9gd": {
+            "name": "Executioner Sword",
+            "type": "swor"
+        },
+        "9dg": {
+            "name": "Poignard",
+            "type": "knif"
+        },
+        "9di": {
+            "name": "Rondel",
+            "type": "knif"
+        },
+        "9kr": {
+            "name": "Cinquedeas",
+            "type": "knif"
+        },
+        "9bl": {
+            "name": "Stilleto",
+            "type": "knif"
+        },
+        "9tk": {
+            "name": "Battle Dart",
+            "type": "tkni"
+        },
+        "9ta": {
+            "name": "Francisca",
+            "type": "taxe"
+        },
+        "9bk": {
+            "name": "War Dart",
+            "type": "tkni"
+        },
+        "9b8": {
+            "name": "Hurlbat",
+            "type": "taxe"
+        },
+        "9ja": {
+            "name": "War Javelin",
+            "type": "jave"
+        },
+        "9pi": {
+            "name": "Great Pilum",
+            "type": "jave"
+        },
+        "9s9": {
+            "name": "Simbilan",
+            "type": "jave"
+        },
+        "9gl": {
+            "name": "Spiculum",
+            "type": "jave"
+        },
+        "9ts": {
+            "name": "Harpoon",
+            "type": "jave"
+        },
+        "9sr": {
+            "name": "War Spear",
+            "type": "spea"
+        },
+        "9tr": {
+            "name": "Fuscina",
+            "type": "spea"
+        },
+        "9br": {
+            "name": "War Fork",
+            "type": "spea"
+        },
+        "9st": {
+            "name": "Yari",
+            "type": "spea"
+        },
+        "9p9": {
+            "name": "Lance",
+            "type": "spea"
+        },
+        "9b7": {
+            "name": "Lochaber Axe",
+            "type": "pole"
+        },
+        "9vo": {
+            "name": "Bill",
+            "type": "pole"
+        },
+        "9s8": {
+            "name": "Battle Scythe",
+            "type": "pole"
+        },
+        "9pa": {
+            "name": "Partizan",
+            "type": "pole"
+        },
+        "9h9": {
+            "name": "Bec-de-Corbin",
+            "type": "pole"
+        },
+        "9wc": {
+            "name": "Grim Scythe",
+            "type": "pole"
+        },
+        "8ss": {
+            "name": "Jo Staff",
+            "type": "staf"
+        },
+        "8ls": {
+            "name": "Quarterstaff",
+            "type": "staf"
+        },
+        "8cs": {
+            "name": "Cedar Staff",
+            "type": "staf"
+        },
+        "8bs": {
+            "name": "Gothic Staff",
+            "type": "staf"
+        },
+        "8ws": {
+            "name": "Rune Staff",
+            "type": "staf"
+        },
+        "8sb": {
+            "name": "Edge Bow",
+            "type": "bow"
+        },
+        "8hb": {
+            "name": "Razor Bow",
+            "type": "bow"
+        },
+        "8lb": {
+            "name": "Cedar Bow",
+            "type": "bow"
+        },
+        "8cb": {
+            "name": "Double Bow",
+            "type": "bow"
+        },
+        "8s8": {
+            "name": "Short Siege Bow",
+            "type": "bow"
+        },
+        "8l8": {
+            "name": "Long Siege Bow",
+            "type": "bow"
+        },
+        "8sw": {
+            "name": "Rune Bow",
+            "type": "bow"
+        },
+        "8lw": {
+            "name": "Gothic Bow",
+            "type": "bow"
+        },
+        "8lx": {
+            "name": "Arbalest",
+            "type": "xbow"
+        },
+        "8mx": {
+            "name": "Siege Crossbow",
+            "type": "xbow"
+        },
+        "8hx": {
+            "name": "Ballista",
+            "type": "xbow"
+        },
+        "8rx": {
+            "name": "Chu-Ko-Nu",
+            "type": "xbow"
+        },
+        "qf1": {
+            "name": "Khalim's Flail",
+            "type": "mace"
+        },
+        "qf2": {
+            "name": "Khalim's Will",
+            "type": "mace"
+        },
+        "ktr": {
+            "name": "Katar",
+            "type": "h2h"
+        },
+        "wrb": {
+            "name": "Wrist Blade",
+            "type": "h2h"
+        },
+        "axf": {
+            "name": "Hatchet Hands",
+            "type": "h2h"
+        },
+        "ces": {
+            "name": "Cestus",
+            "type": "h2h"
+        },
+        "clw": {
+            "name": "Claws",
+            "type": "h2h"
+        },
+        "btl": {
+            "name": "Blade Talons",
+            "type": "h2h"
+        },
+        "skr": {
+            "name": "Scissors Katar",
+            "type": "h2h"
+        },
+        "9ar": {
+            "name": "Quhab",
+            "type": "h2h"
+        },
+        "9wb": {
+            "name": "Wrist Spike",
+            "type": "h2h"
+        },
+        "9xf": {
+            "name": "Fascia",
+            "type": "h2h"
+        },
+        "9cs": {
+            "name": "Hand Scythe",
+            "type": "h2h2"
+        },
+        "9lw": {
+            "name": "Greater Claws",
+            "type": "h2h2"
+        },
+        "9tw": {
+            "name": "Greater Talons",
+            "type": "h2h2"
+        },
+        "9qr": {
+            "name": "Scissors Quhab",
+            "type": "h2h2"
+        },
+        "7ar": {
+            "name": "Suwayyah",
+            "type": "h2h2"
+        },
+        "7wb": {
+            "name": "Wrist Sword",
+            "type": "h2h2"
+        },
+        "7xf": {
+            "name": "War Fist",
+            "type": "h2h2"
+        },
+        "7cs": {
+            "name": "Battle Cestus",
+            "type": "h2h2"
+        },
+        "7lw": {
+            "name": "Feral Claws",
+            "type": "h2h2"
+        },
+        "7tw": {
+            "name": "Runic Talons",
+            "type": "h2h2"
+        },
+        "7qr": {
+            "name": "Scissors Suwayyah",
+            "type": "h2h2"
+        },
+        "7ha": {
+            "name": "Tomahawk",
+            "type": "axe"
+        },
+        "7ax": {
+            "name": "Small Crescent",
+            "type": "axe"
+        },
+        "72a": {
+            "name": "Ettin Axe",
+            "type": "axe"
+        },
+        "7mp": {
+            "name": "War Spike",
+            "type": "axe"
+        },
+        "7wa": {
+            "name": "Berserker Axe",
+            "type": "axe"
+        },
+        "7la": {
+            "name": "Feral Axe",
+            "type": "axe"
+        },
+        "7ba": {
+            "name": "Silver-edged Axe",
+            "type": "axe"
+        },
+        "7bt": {
+            "name": "Decapitator",
+            "type": "axe"
+        },
+        "7ga": {
+            "name": "Champion Axe",
+            "type": "axe"
+        },
+        "7gi": {
+            "name": "Glorious Axe",
+            "type": "axe"
+        },
+        "7wn": {
+            "name": "Polished Wand",
+            "type": "wand"
+        },
+        "7yw": {
+            "name": "Ghost Wand",
+            "type": "wand"
+        },
+        "7bw": {
+            "name": "Lich Wand",
+            "type": "wand"
+        },
+        "7gw": {
+            "name": "Unearthed Wand",
+            "type": "wand"
+        },
+        "7cl": {
+            "name": "Truncheon",
+            "type": "club"
+        },
+        "7sc": {
+            "name": "Mighty Scepter",
+            "type": "scep"
+        },
+        "7qs": {
+            "name": "Seraph Rod",
+            "type": "scep"
+        },
+        "7ws": {
+            "name": "Caduceus",
+            "type": "scep"
+        },
+        "7sp": {
+            "name": "Tyrant Club",
+            "type": "club"
+        },
+        "7ma": {
+            "name": "Reinforced Mace",
+            "type": "mace"
+        },
+        "7mt": {
+            "name": "Devil Star",
+            "type": "mace"
+        },
+        "7fl": {
+            "name": "Scourge",
+            "type": "mace"
+        },
+        "7wh": {
+            "name": "Legendary Mallet",
+            "type": "hamm"
+        },
+        "7m7": {
+            "name": "Ogre Maul",
+            "type": "hamm"
+        },
+        "7gm": {
+            "name": "Thunder Maul",
+            "type": "hamm"
+        },
+        "7ss": {
+            "name": "Falcata",
+            "type": "swor"
+        },
+        "7sm": {
+            "name": "Ataghan",
+            "type": "swor"
+        },
+        "7sb": {
+            "name": "Elegant Blade",
+            "type": "swor"
+        },
+        "7fc": {
+            "name": "Hydra Edge",
+            "type": "swor"
+        },
+        "7cr": {
+            "name": "Phase Blade",
+            "type": "swor"
+        },
+        "7bs": {
+            "name": "Conquest Sword",
+            "type": "swor"
+        },
+        "7ls": {
+            "name": "Cryptic Sword",
+            "type": "swor"
+        },
+        "7wd": {
+            "name": "Mythical Sword",
+            "type": "swor"
+        },
+        "72h": {
+            "name": "Legend Sword",
+            "type": "swor"
+        },
+        "7cm": {
+            "name": "Highland Blade",
+            "type": "swor"
+        },
+        "7gs": {
+            "name": "Balrog Blade",
+            "type": "swor"
+        },
+        "7b7": {
+            "name": "Champion Sword",
+            "type": "swor"
+        },
+        "7fb": {
+            "name": "Colossal Sword",
+            "type": "swor"
+        },
+        "7gd": {
+            "name": "Colossus Blade",
+            "type": "swor"
+        },
+        "7dg": {
+            "name": "Bone Knife",
+            "type": "knif"
+        },
+        "7di": {
+            "name": "Mithral Point",
+            "type": "knif"
+        },
+        "7kr": {
+            "name": "Fanged Knife",
+            "type": "knif"
+        },
+        "7bl": {
+            "name": "Legend Spike",
+            "type": "knif"
+        },
+        "7tk": {
+            "name": "Flying Knife",
+            "type": "tkni"
+        },
+        "7ta": {
+            "name": "Flying Axe",
+            "type": "taxe"
+        },
+        "7bk": {
+            "name": "Winged Knife",
+            "type": "tkni"
+        },
+        "7b8": {
+            "name": "Winged Axe",
+            "type": "taxe"
+        },
+        "7ja": {
+            "name": "Hyperion Javelin",
+            "type": "jave"
+        },
+        "7pi": {
+            "name": "Stygian Pilum",
+            "type": "jave"
+        },
+        "7s7": {
+            "name": "Balrog Spear",
+            "type": "jave"
+        },
+        "7gl": {
+            "name": "Ghost Glaive",
+            "type": "jave"
+        },
+        "7ts": {
+            "name": "Winged Harpoon",
+            "type": "jave"
+        },
+        "7sr": {
+            "name": "Hyperion Spear",
+            "type": "spea"
+        },
+        "7tr": {
+            "name": "Stygian Pike",
+            "type": "spea"
+        },
+        "7br": {
+            "name": "Mancatcher",
+            "type": "spea"
+        },
+        "7st": {
+            "name": "Ghost Spear",
+            "type": "spea"
+        },
+        "7p7": {
+            "name": "War Pike",
+            "type": "spea"
+        },
+        "7o7": {
+            "name": "Ogre Axe",
+            "type": "pole"
+        },
+        "7vo": {
+            "name": "Colossus Voulge",
+            "type": "pole"
+        },
+        "7s8": {
+            "name": "Thresher",
+            "type": "pole"
+        },
+        "7pa": {
+            "name": "Cryptic Axe",
+            "type": "pole"
+        },
+        "7h7": {
+            "name": "Great Poleaxe",
+            "type": "pole"
+        },
+        "7wc": {
+            "name": "Giant Thresher",
+            "type": "pole"
+        },
+        "6ss": {
+            "name": "Walking Stick",
+            "type": "staf"
+        },
+        "6ls": {
+            "name": "Stalagmite",
+            "type": "staf"
+        },
+        "6cs": {
+            "name": "Elder Staff",
+            "type": "staf"
+        },
+        "6bs": {
+            "name": "Shillelagh",
+            "type": "staf"
+        },
+        "6ws": {
+            "name": "Archon Staff",
+            "type": "staf"
+        },
+        "6sb": {
+            "name": "Spider Bow",
+            "type": "bow"
+        },
+        "6hb": {
+            "name": "Blade Bow",
+            "type": "bow"
+        },
+        "6lb": {
+            "name": "Shadow Bow",
+            "type": "bow"
+        },
+        "6cb": {
+            "name": "Great Bow",
+            "type": "bow"
+        },
+        "6s7": {
+            "name": "Diamond Bow",
+            "type": "bow"
+        },
+        "6l7": {
+            "name": "Crusader Bow",
+            "type": "bow"
+        },
+        "6sw": {
+            "name": "Ward Bow",
+            "type": "bow"
+        },
+        "6lw": {
+            "name": "Hydra Bow",
+            "type": "bow"
+        },
+        "6lx": {
+            "name": "Pellet Bow",
+            "type": "xbow"
+        },
+        "6mx": {
+            "name": "Gorgon Crossbow",
+            "type": "xbow"
+        },
+        "6hx": {
+            "name": "Colossus Crossbow",
+            "type": "xbow"
+        },
+        "6rx": {
+            "name": "Demon Crossbow",
+            "type": "xbow"
+        },
+        "ob1": {
+            "name": "Eagle Orb",
+            "type": "orb"
+        },
+        "ob2": {
+            "name": "Sacred Globe",
+            "type": "orb"
+        },
+        "ob3": {
+            "name": "Smoked Sphere",
+            "type": "orb"
+        },
+        "ob4": {
+            "name": "Clasped Orb",
+            "type": "orb"
+        },
+        "ob5": {
+            "name": "Jared's Stone",
+            "type": "orb"
+        },
+        "am1": {
+            "name": "Stag Bow",
+            "type": "abow"
+        },
+        "am2": {
+            "name": "Reflex Bow",
+            "type": "abow"
+        },
+        "am3": {
+            "name": "Maiden Spear",
+            "type": "aspe"
+        },
+        "am4": {
+            "name": "Maiden Pike",
+            "type": "aspe"
+        },
+        "am5": {
+            "name": "Maiden Javelin",
+            "type": "ajav"
+        },
+        "ob6": {
+            "name": "Glowing Orb",
+            "type": "orb"
+        },
+        "ob7": {
+            "name": "Crystalline Globe",
+            "type": "orb"
+        },
+        "ob8": {
+            "name": "Cloudy Sphere",
+            "type": "orb"
+        },
+        "ob9": {
+            "name": "Sparkling Ball",
+            "type": "orb"
+        },
+        "oba": {
+            "name": "Swirling Crystal",
+            "type": "orb"
+        },
+        "am6": {
+            "name": "Ashwood Bow",
+            "type": "abow"
+        },
+        "am7": {
+            "name": "Ceremonial Bow",
+            "type": "abow"
+        },
+        "am8": {
+            "name": "Ceremonial Spear",
+            "type": "aspe"
+        },
+        "am9": {
+            "name": "Ceremonial Pike",
+            "type": "aspe"
+        },
+        "ama": {
+            "name": "Ceremonial Javelin",
+            "type": "ajav"
+        },
+        "obb": {
+            "name": "Heavenly Stone",
+            "type": "orb"
+        },
+        "obc": {
+            "name": "Eldritch Orb",
+            "type": "orb"
+        },
+        "obd": {
+            "name": "Demon Heart",
+            "type": "orb"
+        },
+        "obe": {
+            "name": "Vortex Orb",
+            "type": "orb"
+        },
+        "obf": {
+            "name": "Dimensional Shard",
+            "type": "orb"
+        },
+        "amb": {
+            "name": "Matriarchal Bow",
+            "type": "abow"
+        },
+        "amc": {
+            "name": "Grand Matron Bow",
+            "type": "abow"
+        },
+        "amd": {
+            "name": "Matriarchal Spear",
+            "type": "aspe"
+        },
+        "ame": {
+            "name": "Matriarchal Pike",
+            "type": "aspe"
+        },
+        "amf": {
+            "name": "Matriarchal Javelin",
+            "type": "ajav"
+        },
+        "elx": {
+            "name": "Elixir",
+            "type": "elix"
+        },
+        "hpo": {
+            "name": "Healing Potion",
+            "type": "hpot"
+        },
+        "mpo": {
+            "name": "Mana Potion",
+            "type": "mpot"
+        },
+        "hpf": {
+            "name": "Full Healing Potion",
+            "type": "hpot"
+        },
+        "mpf": {
+            "name": "Full Mana Potion",
+            "type": "mpot"
+        },
+        "vps": {
+            "name": "Stamina Potion",
+            "type": "spot"
+        },
+        "yps": {
+            "name": "Antidote Potion",
+            "type": "apot"
+        },
+        "rvs": {
+            "name": "Rejuvenation Potion",
+            "type": "rpot"
+        },
+        "rvl": {
+            "name": "Full Rejuvenation Potion",
+            "type": "rpot"
+        },
+        "wms": {
+            "name": "Thawing Potion",
+            "type": "wpot"
+        },
+        "tbk": {
+            "name": "Tome of Town Portal",
+            "type": "book"
+        },
+        "ibk": {
+            "name": "Tome of Identify",
+            "type": "book"
+        },
+        "amu": {
+            "name": "Amulet",
+            "type": "amul"
+        },
+        "vip": {
+            "name": "Amulet of the Viper",
+            "type": "amul"
+        },
+        "rin": {
+            "name": "Ring",
+            "type": "ring"
+        },
+        "gld": {
+            "name": "Gold",
+            "type": "gold"
+        },
+        "bks": {
+            "name": "Scroll of Inifuss",
+            "type": "ques"
+        },
+        "bkd": {
+            "name": "Key to the Cairn Stones",
+            "type": "ques"
+        },
+        "aqv": {
+            "name": "Arrows",
+            "type": "bowq"
+        },
+        "tch": {
+            "name": "Torch",
+            "type": "torc"
+        },
+        "cqv": {
+            "name": "Bolts",
+            "type": "xboq"
+        },
+        "tsc": {
+            "name": "Scroll of Town Portal",
+            "type": "scro"
+        },
+        "isc": {
+            "name": "Scroll of Identify",
+            "type": "scro"
+        },
+        "hrt": {
+            "name": "Heart",
+            "type": "body"
+        },
+        "brz": {
+            "name": "Brain",
+            "type": "body"
+        },
+        "jaw": {
+            "name": "Jawbone",
+            "type": "body"
+        },
+        "eyz": {
+            "name": "Eye",
+            "type": "body"
+        },
+        "hrn": {
+            "name": "Horn",
+            "type": "body"
+        },
+        "tal": {
+            "name": "Tail",
+            "type": "body"
+        },
+        "flg": {
+            "name": "Flag",
+            "type": "body"
+        },
+        "fng": {
+            "name": "Fang",
+            "type": "body"
+        },
+        "qll": {
+            "name": "Quill",
+            "type": "body"
+        },
+        "sol": {
+            "name": "Soul",
+            "type": "body"
+        },
+        "scz": {
+            "name": "Scalp",
+            "type": "body"
+        },
+        "spe": {
+            "name": "Spleen",
+            "type": "body"
+        },
+        "key": {
+            "name": "Key",
+            "type": "key"
+        },
+        "luv": {
+            "name": "The Black Tower Key",
+            "type": "key"
+        },
+        "xyz": {
+            "name": "Potion of Life",
+            "type": "ques"
+        },
+        "j34": {
+            "name": "A Jade Figurine",
+            "type": "ques"
+        },
+        "g34": {
+            "name": "The Golden Bird",
+            "type": "ques"
+        },
+        "bbb": {
+            "name": "Lam Esen's Tome",
+            "type": "ques"
+        },
+        "box": {
+            "name": "Horadric Cube",
+            "type": "ques"
+        },
+        "tr1": {
+            "name": "Horadric Scroll",
+            "type": "ques"
+        },
+        "mss": {
+            "name": "Mephisto's Soulstone",
+            "type": "ques"
+        },
+        "ass": {
+            "name": "Book of Skill",
+            "type": "ques"
+        },
+        "qey": {
+            "name": "Khalim's Eye",
+            "type": "ques"
+        },
+        "qhr": {
+            "name": "Khalim's Heart",
+            "type": "ques"
+        },
+        "qbr": {
+            "name": "Khalim's Brain",
+            "type": "ques"
+        },
+        "ear": {
+            "name": "Ear",
+            "type": "play"
+        },
+        "gcv": {
+            "name": "Chipped Amethyst",
+            "type": "gema"
+        },
+        "gfv": {
+            "name": "Flawed Amethyst",
+            "type": "gema"
+        },
+        "gsv": {
+            "name": "Amethyst",
+            "type": "gema"
+        },
+        "gzv": {
+            "name": "Flawless Amethyst",
+            "type": "gema"
+        },
+        "gpv": {
+            "name": "Perfect Amethyst",
+            "type": "gema"
+        },
+        "gcy": {
+            "name": "Chipped Topaz",
+            "type": "gemt"
+        },
+        "gfy": {
+            "name": "Flawed Topaz",
+            "type": "gemt"
+        },
+        "gsy": {
+            "name": "Topaz",
+            "type": "gemt"
+        },
+        "gly": {
+            "name": "Flawless Topaz",
+            "type": "gemt"
+        },
+        "gpy": {
+            "name": "Perfect Topaz",
+            "type": "gemt"
+        },
+        "gcb": {
+            "name": "Chipped Sapphire",
+            "type": "gems"
+        },
+        "gfb": {
+            "name": "Flawed Sapphire",
+            "type": "gems"
+        },
+        "gsb": {
+            "name": "Sapphire",
+            "type": "gems"
+        },
+        "glb": {
+            "name": "Flawless Sapphire",
+            "type": "gems"
+        },
+        "gpb": {
+            "name": "Perfect Sapphire",
+            "type": "gems"
+        },
+        "gcg": {
+            "name": "Chipped Emerald",
+            "type": "geme"
+        },
+        "gfg": {
+            "name": "Flawed Emerald",
+            "type": "geme"
+        },
+        "gsg": {
+            "name": "Emerald",
+            "type": "geme"
+        },
+        "glg": {
+            "name": "Flawless Emerald",
+            "type": "geme"
+        },
+        "gpg": {
+            "name": "Perfect Emerald",
+            "type": "geme"
+        },
+        "gcr": {
+            "name": "Chipped Ruby",
+            "type": "gemr"
+        },
+        "gfr": {
+            "name": "Flawed Ruby",
+            "type": "gemr"
+        },
+        "gsr": {
+            "name": "Ruby",
+            "type": "gemr"
+        },
+        "glr": {
+            "name": "Flawless Ruby",
+            "type": "gemr"
+        },
+        "gpr": {
+            "name": "Perfect Ruby",
+            "type": "gemr"
+        },
+        "gcw": {
+            "name": "Chipped Diamond",
+            "type": "gemd"
+        },
+        "gfw": {
+            "name": "Flawed Diamond",
+            "type": "gemd"
+        },
+        "gsw": {
+            "name": "Diamond",
+            "type": "gemd"
+        },
+        "glw": {
+            "name": "Flawless Diamond",
+            "type": "gemd"
+        },
+        "gpw": {
+            "name": "Perfect Diamond",
+            "type": "gemd"
+        },
+        "hp1": {
+            "name": "Minor Healing Potion",
+            "type": "hpot"
+        },
+        "hp2": {
+            "name": "Light Healing Potion",
+            "type": "hpot"
+        },
+        "hp3": {
+            "name": "Healing Potion",
+            "type": "hpot"
+        },
+        "hp4": {
+            "name": "Greater Healing Potion",
+            "type": "hpot"
+        },
+        "hp5": {
+            "name": "Super Healing Potion",
+            "type": "hpot"
+        },
+        "mp1": {
+            "name": "Minor Mana Potion",
+            "type": "mpot"
+        },
+        "mp2": {
+            "name": "Light Mana Potion",
+            "type": "mpot"
+        },
+        "mp3": {
+            "name": "Mana Potion",
+            "type": "mpot"
+        },
+        "mp4": {
+            "name": "Greater Mana Potion",
+            "type": "mpot"
+        },
+        "mp5": {
+            "name": "Super Mana Potion",
+            "type": "mpot"
+        },
+        "skc": {
+            "name": "Chipped Skull",
+            "type": "gemz"
+        },
+        "skf": {
+            "name": "Flawed Skull",
+            "type": "gemz"
+        },
+        "sku": {
+            "name": "Skull",
+            "type": "gemz"
+        },
+        "skl": {
+            "name": "Flawless Skull",
+            "type": "gemz"
+        },
+        "skz": {
+            "name": "Perfect Skull",
+            "type": "gemz"
+        },
+        "hrb": {
+            "name": "Herb",
+            "type": "herb"
+        },
+        "cm1": {
+            "name": "Small Charm",
+            "type": "scha"
+        },
+        "cm2": {
+            "name": "Large Charm",
+            "type": "mcha"
+        },
+        "cm3": {
+            "name": "Grand Charm",
+            "type": "lcha"
+        },
+        "rps": {
+            "name": "Small Red Potion",
+            "type": "hpot"
+        },
+        "rpl": {
+            "name": "Large Red Potion",
+            "type": "hpot"
+        },
+        "bps": {
+            "name": "Small Blue Potion",
+            "type": "mpot"
+        },
+        "bpl": {
+            "name": "Large Blue Potion",
+            "type": "mpot"
+        },
+        "r01": {
+            "name": "El Rune",
+            "type": "rune"
+        },
+        "r02": {
+            "name": "Eld Rune",
+            "type": "rune"
+        },
+        "r03": {
+            "name": "Tir Rune",
+            "type": "rune"
+        },
+        "r04": {
+            "name": "Nef Rune",
+            "type": "rune"
+        },
+        "r05": {
+            "name": "Eth Rune",
+            "type": "rune"
+        },
+        "r06": {
+            "name": "Ith Rune",
+            "type": "rune"
+        },
+        "r07": {
+            "name": "Tal Rune",
+            "type": "rune"
+        },
+        "r08": {
+            "name": "Ral Rune",
+            "type": "rune"
+        },
+        "r09": {
+            "name": "Ort Rune",
+            "type": "rune"
+        },
+        "r10": {
+            "name": "Thul Rune",
+            "type": "rune"
+        },
+        "r11": {
+            "name": "Amn Rune",
+            "type": "rune"
+        },
+        "r12": {
+            "name": "Sol Rune",
+            "type": "rune"
+        },
+        "r13": {
+            "name": "Shael Rune",
+            "type": "rune"
+        },
+        "r14": {
+            "name": "Dol Rune",
+            "type": "rune"
+        },
+        "r15": {
+            "name": "Hel Rune",
+            "type": "rune"
+        },
+        "r16": {
+            "name": "Io Rune",
+            "type": "rune"
+        },
+        "r17": {
+            "name": "Lum Rune",
+            "type": "rune"
+        },
+        "r18": {
+            "name": "Ko Rune",
+            "type": "rune"
+        },
+        "r19": {
+            "name": "Fal Rune",
+            "type": "rune"
+        },
+        "r20": {
+            "name": "Lem Rune",
+            "type": "rune"
+        },
+        "r21": {
+            "name": "Pul Rune",
+            "type": "rune"
+        },
+        "r22": {
+            "name": "Um Rune",
+            "type": "rune"
+        },
+        "r23": {
+            "name": "Mal Rune",
+            "type": "rune"
+        },
+        "r24": {
+            "name": "Ist Rune",
+            "type": "rune"
+        },
+        "r25": {
+            "name": "Gul Rune",
+            "type": "rune"
+        },
+        "r26": {
+            "name": "Vex Rune",
+            "type": "rune"
+        },
+        "r27": {
+            "name": "Ohm Rune",
+            "type": "rune"
+        },
+        "r28": {
+            "name": "Lo Rune",
+            "type": "rune"
+        },
+        "r29": {
+            "name": "Sur Rune",
+            "type": "rune"
+        },
+        "r30": {
+            "name": "Ber Rune",
+            "type": "rune"
+        },
+        "r31": {
+            "name": "Jah Rune",
+            "type": "rune"
+        },
+        "r32": {
+            "name": "Cham Rune",
+            "type": "rune"
+        },
+        "r33": {
+            "name": "Zod Rune",
+            "type": "rune"
+        },
+        "jew": {
+            "name": "Jewel",
+            "type": "jewl"
+        },
+        "ice": {
+            "name": "Malah's Potion",
+            "type": "ques"
+        },
+        "0sc": {
+            "name": "Scroll of Knowledge",
+            "type": "scro"
+        },
+        "tr2": {
+            "name": "Scroll of Resistance",
+            "type": "ques"
+        },
+        "pk1": {
+            "name": "Key of Terror",
+            "type": "ques"
+        },
+        "pk2": {
+            "name": "Key of Hate",
+            "type": "ques"
+        },
+        "pk3": {
+            "name": "Key of Destruction",
+            "type": "ques"
+        },
+        "dhn": {
+            "name": "Diablo's Horn",
+            "type": "ques"
+        },
+        "bey": {
+            "name": "Baal's Eye",
+            "type": "ques"
+        },
+        "mbr": {
+            "name": "Mephisto's Brain",
+            "type": "ques"
+        },
+        "toa": {
+            "name": "Token of Absolution",
+            "type": "ques"
+        },
+        "tes": {
+            "name": "Twisted Essence of Suffering",
+            "type": "ques"
+        },
+        "ceh": {
+            "name": "Charged Essense of Hatred",
+            "type": "ques"
+        },
+        "bet": {
+            "name": "Burning Essence of Terror",
+            "type": "ques"
+        },
+        "fed": {
+            "name": "Festering Essence of Destruction",
+            "type": "ques"
+        },
+        "std": {
+            "name": "Standard of Heroes",
+            "type": "ques"
+        },
+        "xa1": {
+            "name": "Western Worldstone Shard",
+            "type": "ques"
+        },
+        "xa2": {
+            "name": "Eastern Worldstone Shard",
+            "type": "ques"
+        },
+        "xa3": {
+            "name": "Southern Worldstone Shard",
+            "type": "ques"
+        },
+        "xa4": {
+            "name": "Deep Worldstone Shard",
+            "type": "ques"
+        },
+        "xa5": {
+            "name": "Northern Worldstone Shard",
+            "type": "ques"
+        },
+        "ua1": {
+            "name": "Uber Ancient Summon Material Act 1",
+            "type": "ques"
+        },
+        "ua2": {
+            "name": "Uber Ancient Summon Material Act 2",
+            "type": "ques"
+        },
+        "ua3": {
+            "name": "Uber Ancient Summon Material Act 3",
+            "type": "ques"
+        },
+        "ua4": {
+            "name": "Uber Ancient Summon Material Act 4",
+            "type": "ques"
+        },
+        "ua5": {
+            "name": "Uber Ancient Summon Material Act5",
+            "type": "ques"
+        },
+        "um1": {
+            "name": "Uber Ancient Upgrade Material  Fire",
+            "type": "ques"
+        },
+        "um2": {
+            "name": "Uber Ancient Upgrade Material Poison",
+            "type": "ques"
+        },
+        "um3": {
+            "name": "Uber Ancient Upgrade Material  Cold",
+            "type": "ques"
+        },
+        "um4": {
+            "name": "Uber Ancient Upgrade Material Physical",
+            "type": "ques"
+        },
+        "um5": {
+            "name": "Uber Ancient Upgrade Material Lightning",
+            "type": "ques"
+        },
+        "um6": {
+            "name": "Uber Ancient Upgrade Material Magic",
+            "type": "ques"
+        },
+        "cjw": {
+            "name": "Colossal Jewel",
+            "type": "cjwl"
+        },
+        "cs2": {
+            "name": "Crafted Sunder Charm",
+            "type": "csch"
+        }
+    }
+}
