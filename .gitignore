@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 *.bak
 D2R_AI_Bank.json
+*.fltr
