@@ -108,38 +108,81 @@ def _load_code_names():
 
 
 # --- Filter Generation ---
+def _build_grail_codes(grail):
+    """Determine which base codes are fully completed (all uniques AND sets found).
+    A code is 'complete' only if every unique and every set using that base code
+    has been found. If even one is missing, keep showing that code.
+    """
+    quest_codes = {'qf1', 'qf2', 'msf', 'hst', 'hfh', 'vip', 'leg', 'hdm', 'g33', 'd33'}
+
+    # code -> list of (id, found?) for uniques
+    code_unique_status = {}
+    for i, n, c, l in grail['unique_table']:
+        if c in quest_codes: continue
+        code_unique_status.setdefault(c, []).append(i in grail['found_uids'])
+    for i, n, c, l in grail['missing_uniques']:
+        if c in quest_codes: continue
+        code_unique_status.setdefault(c, [])  # ensure entry exists
+
+    # code -> list of (id, found?) for sets
+    code_set_status = {}
+    for i, n, c, l in grail['set_table']:
+        code_set_status.setdefault(c, []).append(i in grail['found_sids'])
+    for i, n, c, l in grail['missing_sets']:
+        code_set_status.setdefault(c, [])
+
+    # A code is fully complete if ALL uniques for it are found AND all sets for it
+    completed_codes = set()
+    all_codes = set(code_unique_status.keys()) | set(code_set_status.keys())
+    for code in all_codes:
+        if code in quest_codes:
+            continue
+        u_list = code_unique_status.get(code, [])
+        s_list = code_set_status.get(code, [])
+        # Must have found at least one item from this code
+        if not u_list and not s_list:
+            continue
+        all_u_found = all(u_list) if u_list else True
+        all_s_found = all(s_list) if s_list else True
+        if all_u_found and all_s_found and (u_list or s_list):
+            # Only mark complete if we actually found something
+            has_any_found = any(u_list) or any(s_list)
+            if has_any_found:
+                completed_codes.add(code)
+
+    return completed_codes
+
+
 def generate_filter():
     grail = grail_status()
     code_names = _load_code_names()
+    completed_codes = _build_grail_codes(grail)
 
-    # Build base codes for items we already found ALL uniques of
-    found_unique_codes = set()
-    missing_unique_codes = set()
-    for i, n, c, l in grail['found_uniques']:
-        found_unique_codes.add(c)
-    for i, n, c, l in grail['missing_uniques']:
-        missing_unique_codes.add(c)
-
-    # Codes where we have the unique and no other unique exists for that base
-    completed_unique_bases = found_unique_codes - missing_unique_codes
-
-    # Normal-tier trash items to hide (white/magic) - only for normal quality bases
-    # that we've already completed in the grail
+    # Separate normal-tier vs exceptional-tier completed codes
     normal_tier_codes = set()
+    exceptional_tier_codes = set()
     for path in [ARMOR_TXT, WEAPONS_TXT]:
         with open(path, 'r', encoding='utf-8-sig', errors='replace') as f:
             for row in csv.DictReader(f, delimiter='\t'):
                 code = row.get('code', '').strip()
                 norm_code = row.get('normcode', '').strip()
-                if code and code == norm_code:  # It IS the normal tier version
+                uber_code = row.get('ubercode', '').strip()
+                if code and code == norm_code:
                     normal_tier_codes.add(code)
+                elif code and code == uber_code:
+                    exceptional_tier_codes.add(code)
 
-    # Items to hide: normal-tier base codes where we've completed the unique grail
-    hide_normal_completed = sorted(completed_unique_bases & normal_tier_codes)
+    hide_normal_completed = sorted(completed_codes & normal_tier_codes)
+    hide_exceptional_completed = sorted(completed_codes & exceptional_tier_codes)
+    # Also hide misc completed (rings, amulets, jewels)
+    misc_codes = {'rin', 'amu', 'jew', 'cm1', 'cm2', 'cm3'}
+    hide_misc_completed = sorted(completed_codes & misc_codes)
 
     rules = []
 
-    # Rule 1: SHOW all uniques (always - for grail)
+    # Rule 1: SHOW unfound uniques (grail priority — these MUST show)
+    # All uniques still show since we can't filter by specific unique ID,
+    # but we hide the base codes where grail is complete via later rules
     rules.append({
         "name": "SHOW Uniques (Grail)",
         "enabled": True,
@@ -148,7 +191,7 @@ def generate_filter():
         "equipmentRarity": ["unique"]
     })
 
-    # Rule 2: SHOW all sets (always - for grail)
+    # Rule 2: SHOW unfound sets
     rules.append({
         "name": "SHOW Sets (Grail)",
         "enabled": True,
@@ -174,7 +217,7 @@ def generate_filter():
         "filterEtherealSocketed": True
     })
 
-    # Rule 5: SHOW rares (potential upgrades)
+    # Rule 5: SHOW rares
     rules.append({
         "name": "SHOW Rare Items",
         "enabled": True,
@@ -183,7 +226,7 @@ def generate_filter():
         "equipmentRarity": ["rare"]
     })
 
-    # Rule 6: SHOW elite items (always valuable)
+    # Rule 6: SHOW elite items
     rules.append({
         "name": "SHOW Elite Items",
         "enabled": True,
@@ -239,19 +282,30 @@ def generate_filter():
         "goldFilterValue": 500
     })
 
-    # Rule 12: HIDE normal-tier white/magic of completed grail bases
-    # This is the smart rule - hides clutter from bases we've already found
+    # Rule 12: HIDE normal-tier uniques/sets of FULLY completed grail bases
+    # Only hides if ALL uniques AND all sets for the base code have been found
     if hide_normal_completed:
         rules.append({
-            "name": "HIDE Normal Whites (Grail Complete)",
+            "name": "HIDE Normal Grail-Complete (uni+set)",
             "enabled": True,
             "ruleType": "hide",
             "filterEtherealSocketed": False,
-            "equipmentRarity": ["normal", "hiQuality"],
+            "equipmentRarity": ["unique", "set", "normal", "hiQuality"],
             "equipmentItemCode": hide_normal_completed
         })
 
-    # Rule 13: HIDE magic items of normal tier (outleveled)
+    # Rule 13: HIDE exceptional-tier uniques/sets of fully completed grail bases
+    if hide_exceptional_completed:
+        rules.append({
+            "name": "HIDE Exceptional Grail-Complete (uni+set)",
+            "enabled": True,
+            "ruleType": "hide",
+            "filterEtherealSocketed": False,
+            "equipmentRarity": ["unique", "set"],
+            "equipmentItemCode": hide_exceptional_completed
+        })
+
+    # Rule 14: HIDE normal-tier magic items (outleveled at 42+)
     rules.append({
         "name": "HIDE Normal-Tier Magic Items",
         "enabled": True,
