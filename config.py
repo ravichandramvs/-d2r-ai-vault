@@ -1,27 +1,62 @@
 """
 Configuration for D2R Vault tools.
-Edit these paths to match your setup.
+
+Auto-detects paths where possible. Override by creating config_local.py
+with any variables you want to change (it's gitignored).
 """
-import os
+import os, sys, glob
 
-# --- Save file paths ---
-MOD_SAVE_DIR = os.path.expanduser(r'~\Saved Games\Diablo II Resurrected\mods\D2RMM')
-STASH_FILE = os.path.join(MOD_SAVE_DIR, 'ModernSharedStashSoftCoreV2.d2i')
-CHAR_FILE = os.path.join(MOD_SAVE_DIR, 'lazylock.d2s')
+_HERE = os.path.dirname(os.path.abspath(__file__))
 
-# --- Vault data ---
-VAULT_FILE = os.path.join(os.path.dirname(__file__), 'D2R_AI_Bank.json')
-STAT_MAP_FILE = os.path.join(os.path.dirname(__file__), 'PreciseModMap_v3.json')
+# --- Auto-detect D2R save directory ---
+_SAVE_BASE = os.path.expanduser(r'~\Saved Games\Diablo II Resurrected')
+_MOD_DIRS = glob.glob(os.path.join(_SAVE_BASE, 'mods', '*'))
 
-# --- D2 data tables (from GoMule or extracted) ---
-D2_DATA_DIR = os.path.expanduser(r'~\Downloads\gomule-d2r-0.24\gomule-d2r-0.24\gomule\d2111')
+# Default: first mod dir found, or base D2R saves
+if _MOD_DIRS:
+    MOD_SAVE_DIR = _MOD_DIRS[0]
+else:
+    MOD_SAVE_DIR = _SAVE_BASE
+
+# --- Stash file (auto-detect Modern or Classic shared stash) ---
+_STASH_CANDIDATES = glob.glob(os.path.join(MOD_SAVE_DIR, '*SharedStash*.d2i'))
+STASH_FILE = _STASH_CANDIDATES[0] if _STASH_CANDIDATES else os.path.join(MOD_SAVE_DIR, 'SharedStashSoftCoreV2.d2i')
+
+# --- Character file (auto-detect first .d2s) ---
+_CHAR_CANDIDATES = glob.glob(os.path.join(MOD_SAVE_DIR, '*.d2s'))
+CHAR_FILE = _CHAR_CANDIDATES[0] if _CHAR_CANDIDATES else ''
+
+# --- Vault data (lives in this repo) ---
+VAULT_FILE = os.path.join(_HERE, 'D2R_AI_Bank.json')
+STAT_MAP_FILE = os.path.join(_HERE, 'PreciseModMap_v3.json')
+
+# --- D2 data tables ---
+# Searches common locations for GoMule or extracted game data.
+# Override D2_DATA_DIR in config_local.py if yours is elsewhere.
+_DATA_SEARCH = [
+    os.path.expanduser(r'~\Downloads\gomule-d2r-*\*\gomule\d2111'),
+    os.path.expanduser(r'~\gomule\d2111'),
+    os.path.join(_HERE, 'data'),
+]
+D2_DATA_DIR = ''
+for pattern in _DATA_SEARCH:
+    matches = glob.glob(pattern)
+    if matches:
+        D2_DATA_DIR = matches[0]
+        break
+
 ARMOR_TXT = os.path.join(D2_DATA_DIR, 'armor.txt')
 WEAPONS_TXT = os.path.join(D2_DATA_DIR, 'weapons.txt')
 MISC_TXT = os.path.join(D2_DATA_DIR, 'Misc.txt')
 UNIQUE_TXT = os.path.join(D2_DATA_DIR, 'UniqueItems.txt')
 SET_TXT = os.path.join(D2_DATA_DIR, 'SetItems.txt')
 
-# --- Binary signatures ---
+# --- Binary signatures (D2R format constants) ---
 TAB_SIG = b'\x55\xAA\x55\xAA'
 CHRONICLE_SIG = b'\xC0\xED\xEA\xC0'
 ITEM_START_RE = b'\x10\x00[\x80\xA0\xC0]\x00\x05'
+
+# --- Local overrides (gitignored) ---
+_LOCAL = os.path.join(_HERE, 'config_local.py')
+if os.path.exists(_LOCAL):
+    exec(open(_LOCAL).read())

@@ -3,3 +3,4 @@ __pycache__/
 *.bak
 D2R_AI_Bank.json
 *.fltr
+config_local.py
