@@ -183,6 +183,7 @@ def generate_filter():
 
     # === RULE 1: HIDE ALL (catch-all, matches everything) ===
     # This is the foundation — everything is hidden unless a SHOW rule saves it
+    # Fields are OR'd at the category level: matches equipment OR misc OR gold
     rules.append({
         "name": "HIDE ALL",
         "enabled": True,
@@ -191,7 +192,8 @@ def generate_filter():
         "equipmentRarity": ["rare", "lowQuality", "magic", "unique", "set", "hiQuality", "normal"],
         "equipmentQuality": ["normal", "exceptional", "elite"],
         "equipmentCategory": ["acce", "armo", "weap"],
-        "itemCategory": ["misc"]
+        "itemCategory": ["misc"],
+        "goldFilterValue": 1
     })
 
     # === SHOW RULES (whitelist — punch holes through HIDE ALL) ===
@@ -207,7 +209,7 @@ def generate_filter():
             "equipmentItemCode": incomplete_codes
         })
 
-    # 3. SHOW socketed + ethereal (runeword bases)
+    # 3. SHOW socketed + ethereal (runeword bases — covers exc/elite socketed)
     rules.append({
         "name": "SHOW Socketed/Ethereal",
         "enabled": True,
@@ -215,14 +217,9 @@ def generate_filter():
         "filterEtherealSocketed": True
     })
 
-    # 4. SHOW exceptional + elite bases (runewords)
-    rules.append({
-        "name": "SHOW Exc/Elite Bases",
-        "enabled": True,
-        "ruleType": "show",
-        "filterEtherealSocketed": False,
-        "equipmentQuality": ["exceptional", "elite"]
-    })
+    # (removed "SHOW Exc/Elite Bases" — was showing ALL white exceptional items
+    #  like Hatchet, Poignard, Gladius etc. Socketed/eth exc/elite items are
+    #  already covered by the socketed/ethereal rule above)
 
     # 5. SHOW rare rings/amu/circlets/boots/jewels
     rules.append({
