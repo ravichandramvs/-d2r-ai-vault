@@ -154,60 +154,31 @@ def _build_grail_codes(grail):
 
 
 def generate_filter():
+    """Generate filter with max 12 rules (game limit ~14, stay safe).
+
+    Rule priority in RotW: SHOW rules whitelist items, HIDE rules blacklist.
+    If both match, SHOW wins. Rules processed top-down.
+    """
     grail = grail_status()
     completed_codes = _build_grail_codes(grail)
 
-    # Classify base codes by tier
-    normal_tier_codes = set()
-    exceptional_tier_codes = set()
-    elite_tier_codes = set()
-    for path in [ARMOR_TXT, WEAPONS_TXT]:
-        with open(path, 'r', encoding='utf-8-sig', errors='replace') as f:
-            for row in csv.DictReader(f, delimiter='\t'):
-                code = row.get('code', '').strip()
-                norm_code = row.get('normcode', '').strip()
-                uber_code = row.get('ubercode', '').strip()
-                ultra_code = row.get('ultracode', '').strip()
-                if not code: continue
-                if code == norm_code:
-                    normal_tier_codes.add(code)
-                elif code == uber_code:
-                    exceptional_tier_codes.add(code)
-                elif code == ultra_code:
-                    elite_tier_codes.add(code)
-
-    # Grail-complete codes per tier
-    hide_normal_completed = sorted(completed_codes & normal_tier_codes)
-    hide_exc_completed = sorted(completed_codes & exceptional_tier_codes)
-    hide_elite_completed = sorted(completed_codes & elite_tier_codes)
-    hide_misc_completed = sorted(completed_codes & {'rin', 'amu', 'jew'})
-
-    # Circlet codes (rare circlets are valuable)
-    circlet_codes = ['ci0', 'ci1', 'ci2', 'ci3']
+    # Merge all grail-complete codes into one list (all tiers)
+    hide_grail_completed = sorted(completed_codes - {'qf1','qf2','msf','hst','hfh','vip','leg','hdm','g33','d33'})
 
     rules = []
 
-    # === SHOW RULES (priority - evaluated first) ===
+    # === SHOW RULES ===
 
-    # SHOW unfound uniques (grail hunting)
+    # 1. SHOW unfound uniques + sets (grail hunting)
     rules.append({
-        "name": "SHOW Uniques (Grail)",
+        "name": "SHOW Uniques & Sets (Grail)",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
-        "equipmentRarity": ["unique"]
+        "equipmentRarity": ["unique", "set"]
     })
 
-    # SHOW unfound sets (grail hunting)
-    rules.append({
-        "name": "SHOW Sets (Grail)",
-        "enabled": True,
-        "ruleType": "show",
-        "filterEtherealSocketed": False,
-        "equipmentRarity": ["set"]
-    })
-
-    # SHOW socketed + ethereal (runeword bases - exc/elite only, normal hidden later)
+    # 2. SHOW socketed + ethereal (runeword bases)
     rules.append({
         "name": "SHOW Socketed/Ethereal",
         "enabled": True,
@@ -215,114 +186,54 @@ def generate_filter():
         "filterEtherealSocketed": True
     })
 
-    # SHOW rare rings, amulets, circlets, boots, jewels only
+    # 3. SHOW exceptional + elite bases (runewords)
     rules.append({
-        "name": "SHOW Rare Rings/Amu/Circ/Boots/Jewels",
+        "name": "SHOW Exc/Elite Bases (Runewords)",
+        "enabled": True,
+        "ruleType": "show",
+        "filterEtherealSocketed": False,
+        "equipmentQuality": ["exceptional", "elite"]
+    })
+
+    # 4. SHOW rare rings/amu/circlets/boots/jewels only
+    rules.append({
+        "name": "SHOW Rare Ring/Amu/Circ/Boot/Jewel",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
         "equipmentRarity": ["rare"],
         "equipmentItemCode": [
             "rin", "amu", "jew",
-            "ci0", "ci1", "ci2", "ci3",             # circlets
-            "lbt", "vbt", "mbt", "tbt", "hbt",      # normal boots
-            "xlb", "xmb", "xtb", "xhb", "xvb",      # exceptional boots
-            "ulb", "umb", "utb", "uhb", "uvb",        # elite boots
+            "ci0", "ci1", "ci2", "ci3",
+            "lbt", "vbt", "mbt", "tbt", "hbt",
+            "xlb", "xmb", "xtb", "xhb", "xvb",
+            "ulb", "umb", "utb", "uhb", "uvb",
         ]
     })
 
-    # SHOW exceptional/elite base items (for runewords)
+    # 5. SHOW magic charms + good potions only
     rules.append({
-        "name": "SHOW Exceptional Bases (Runewords)",
+        "name": "SHOW Charms & Good Potions",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
-        "equipmentQuality": ["exceptional"]
-    })
-
-    rules.append({
-        "name": "SHOW Elite Bases (Runewords)",
-        "enabled": True,
-        "ruleType": "show",
-        "filterEtherealSocketed": False,
-        "equipmentQuality": ["elite"]
-    })
-
-    # SHOW magic charms (keep)
-    rules.append({
-        "name": "SHOW Magic Charms",
-        "enabled": True,
-        "ruleType": "show",
-        "filterEtherealSocketed": False,
-        "equipmentRarity": ["magic"],
-        "itemCode": ["cm1", "cm2", "cm3"]
+        "itemCode": ["cm1", "cm2", "cm3", "hp5", "mp5", "rvs", "rvl"]
     })
 
     # === HIDE RULES ===
 
-    # HIDE grail-complete normal uniques/sets
-    if hide_normal_completed:
+    # 6. HIDE grail-complete uniques/sets (all tiers merged)
+    if hide_grail_completed:
         rules.append({
-            "name": "HIDE Normal Grail-Complete",
+            "name": "HIDE Grail-Complete (uni+set)",
             "enabled": True,
             "ruleType": "hide",
             "filterEtherealSocketed": False,
             "equipmentRarity": ["unique", "set"],
-            "equipmentItemCode": hide_normal_completed
+            "equipmentItemCode": hide_grail_completed
         })
 
-    # HIDE grail-complete exceptional uniques/sets
-    if hide_exc_completed:
-        rules.append({
-            "name": "HIDE Exceptional Grail-Complete",
-            "enabled": True,
-            "ruleType": "hide",
-            "filterEtherealSocketed": False,
-            "equipmentRarity": ["unique", "set"],
-            "equipmentItemCode": hide_exc_completed
-        })
-
-    # HIDE grail-complete elite uniques/sets
-    if hide_elite_completed:
-        rules.append({
-            "name": "HIDE Elite Grail-Complete",
-            "enabled": True,
-            "ruleType": "hide",
-            "filterEtherealSocketed": False,
-            "equipmentRarity": ["unique", "set"],
-            "equipmentItemCode": hide_elite_completed
-        })
-
-    # HIDE grail-complete misc (rings/amu/jewels)
-    if hide_misc_completed:
-        rules.append({
-            "name": "HIDE Misc Grail-Complete",
-            "enabled": True,
-            "ruleType": "hide",
-            "filterEtherealSocketed": False,
-            "equipmentRarity": ["unique", "set"],
-            "equipmentItemCode": hide_misc_completed
-        })
-
-    # HIDE all magic items (except charms - shown above)
-    rules.append({
-        "name": "HIDE Magic Items (not charms)",
-        "enabled": True,
-        "ruleType": "hide",
-        "filterEtherealSocketed": False,
-        "equipmentRarity": ["magic"]
-    })
-
-    # HIDE all rares not in the show list (everything except ring/amu/circ/boots/jewels)
-    rules.append({
-        "name": "HIDE Other Rares",
-        "enabled": True,
-        "ruleType": "hide",
-        "filterEtherealSocketed": False,
-        "equipmentRarity": ["rare"]
-    })
-
-    # HIDE other class items
+    # 7. HIDE other class items
     rules.append({
         "name": "HIDE Other Class Items",
         "enabled": True,
@@ -331,51 +242,31 @@ def generate_filter():
         "equipmentCategory": ["sorce", "amazo", "palad", "necro", "druid", "barbh", "assas"]
     })
 
-    # HIDE inferior gear
+    # 8. HIDE all magic/rare/lowQ/normal/superior (catch-all for non-shown)
     rules.append({
-        "name": "HIDE Inferior Gear",
+        "name": "HIDE Magic/Rare/Normal/Inferior",
         "enabled": True,
         "ruleType": "hide",
         "filterEtherealSocketed": False,
-        "equipmentRarity": ["lowQuality"]
+        "equipmentRarity": ["magic", "rare", "lowQuality", "normal", "hiQuality"]
     })
 
-    # HIDE normal-tier bases entirely (outleveled, no runeword use)
+    # 9. HIDE trash (gems/runes/keys/scrolls/tomes/ammo/potions/gold)
     rules.append({
-        "name": "HIDE Normal-Tier Bases",
+        "name": "HIDE Trash & Consumables",
         "enabled": True,
         "ruleType": "hide",
         "filterEtherealSocketed": False,
-        "equipmentRarity": ["normal", "hiQuality"],
-        "equipmentQuality": ["normal"]
-    })
-
-    # HIDE gems, runes (buyable from mod vendors)
-    rules.append({
-        "name": "HIDE Gems & Runes (buyable)",
-        "enabled": True,
-        "ruleType": "hide",
-        "filterEtherealSocketed": False,
-        "itemCategory": ["gems", "runes"]
-    })
-
-    # HIDE keys, scrolls, tomes, ammo
-    rules.append({
-        "name": "HIDE Keys/Scrolls/Tomes/Ammo",
-        "enabled": True,
-        "ruleType": "hide",
-        "filterEtherealSocketed": False,
-        "itemCategory": ["ammo", "scrlt", "keysr"],
-        "itemCode": ["tbk", "ibk", "tsc", "isc", "key"]
-    })
-
-    # HIDE trash potions + low gold
-    rules.append({
-        "name": "HIDE Trash Potions & Low Gold",
-        "enabled": True,
-        "ruleType": "hide",
-        "filterEtherealSocketed": False,
-        "itemCode": ["hp1", "hp2", "hp3", "mp1", "mp2", "mp3", "vps", "yps", "wms"],
+        "equipmentItemCode": [
+            "gps", "opl", "gpl", "gpm", "opm", "ops",  # gems/pots
+        ],
+        "itemCategory": ["ammo", "gems", "runes", "scrlt", "keysr"],
+        "itemCode": [
+            "hp1", "hp2", "hp3", "hp4",
+            "mp1", "mp2", "mp3", "mp4",
+            "vps", "yps", "wms",
+            "tbk", "ibk", "tsc", "isc", "key",
+        ],
         "goldFilterValue": 500
     })
 
