@@ -154,31 +154,60 @@ def _build_grail_codes(grail):
 
 
 def generate_filter():
-    """Generate filter with max 12 rules (game limit ~14, stay safe).
+    """Generate filter using correct D2R filter semantics:
 
-    Rule priority in RotW: SHOW rules whitelist items, HIDE rules blacklist.
-    If both match, SHOW wins. Rules processed top-down.
+    - SHOW always beats HIDE (if both match, item is shown)
+    - Unmatched items are SHOWN by default
+    - Fields within a rule are AND'd; values within a field are OR'd
+    - Correct pattern: HIDE ALL catch-all + targeted SHOW whitelist rules
+    - No practical rule count limit (community filters use 20-30+)
+
+    For grail: only SHOW uniques/sets from base codes with missing items.
+    Completed base codes simply aren't in any SHOW rule → hidden by catch-all.
     """
     grail = grail_status()
     completed_codes = _build_grail_codes(grail)
 
-    # Merge all grail-complete codes into one list (all tiers)
-    hide_grail_completed = sorted(completed_codes - {'qf1','qf2','msf','hst','hfh','vip','leg','hdm','g33','d33'})
+    # Base codes that still have missing uniques or sets → must SHOW
+    quest_codes = {'qf1','qf2','msf','hst','hfh','vip','leg','hdm','g33','d33'}
+    all_grail_codes = set()
+    for i, n, c, l in grail['unique_table']:
+        if c not in quest_codes: all_grail_codes.add(c)
+    for i, n, c, l in grail['set_table']:
+        if c not in quest_codes: all_grail_codes.add(c)
+
+    # Only show uniques/sets from incomplete base codes
+    incomplete_codes = sorted(all_grail_codes - completed_codes)
 
     rules = []
 
-    # === SHOW RULES ===
-
-    # 1. SHOW unfound uniques + sets (grail hunting)
+    # === RULE 1: HIDE ALL (catch-all, matches everything) ===
+    # This is the foundation — everything is hidden unless a SHOW rule saves it
     rules.append({
-        "name": "SHOW Uniques & Sets (Grail)",
+        "name": "HIDE ALL",
         "enabled": True,
-        "ruleType": "show",
-        "filterEtherealSocketed": False,
-        "equipmentRarity": ["unique", "set"]
+        "ruleType": "hide",
+        "filterEtherealSocketed": True,
+        "equipmentRarity": ["rare", "lowQuality", "magic", "unique", "set", "hiQuality", "normal"],
+        "equipmentQuality": ["normal", "exceptional", "elite"],
+        "equipmentCategory": ["acce", "armo", "weap"],
+        "itemCategory": ["misc"]
     })
 
-    # 2. SHOW socketed + ethereal (runeword bases)
+    # === SHOW RULES (whitelist — punch holes through HIDE ALL) ===
+
+    # 2. SHOW uniques/sets ONLY for incomplete grail base codes
+    if incomplete_codes:
+        rules.append({
+            "name": "SHOW Unfound Uniques/Sets",
+            "enabled": True,
+            "ruleType": "show",
+            "filterEtherealSocketed": False,
+            "equipmentRarity": ["unique", "set"],
+            "equipmentItemCode": incomplete_codes
+        })
+
+    # 3. SHOW socketed + ethereal (runeword bases)
     rules.append({
         "name": "SHOW Socketed/Ethereal",
         "enabled": True,
@@ -186,16 +215,16 @@ def generate_filter():
         "filterEtherealSocketed": True
     })
 
-    # 3. SHOW exceptional + elite bases (runewords)
+    # 4. SHOW exceptional + elite bases (runewords)
     rules.append({
-        "name": "SHOW Exc/Elite Bases (Runewords)",
+        "name": "SHOW Exc/Elite Bases",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
         "equipmentQuality": ["exceptional", "elite"]
     })
 
-    # 4. SHOW rare rings/amu/circlets/boots/jewels only
+    # 5. SHOW rare rings/amu/circlets/boots/jewels
     rules.append({
         "name": "SHOW Rare Ring/Amu/Circ/Boot/Jewel",
         "enabled": True,
@@ -211,63 +240,22 @@ def generate_filter():
         ]
     })
 
-    # 5. SHOW magic charms + good potions only
+    # 6. SHOW magic charms
     rules.append({
-        "name": "SHOW Charms & Good Potions",
+        "name": "SHOW Magic Charms",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
-        "itemCode": ["cm1", "cm2", "cm3", "hp5", "mp5", "rvs", "rvl"]
+        "itemCode": ["cm1", "cm2", "cm3"]
     })
 
-    # === HIDE RULES ===
-
-    # 6. HIDE grail-complete uniques/sets (all tiers merged)
-    if hide_grail_completed:
-        rules.append({
-            "name": "HIDE Grail-Complete (uni+set)",
-            "enabled": True,
-            "ruleType": "hide",
-            "filterEtherealSocketed": False,
-            "equipmentRarity": ["unique", "set"],
-            "equipmentItemCode": hide_grail_completed
-        })
-
-    # 7. HIDE other class items
+    # 7. SHOW good potions only (hp5, mp5, rejuv small, rejuv large)
     rules.append({
-        "name": "HIDE Other Class Items",
+        "name": "SHOW Good Potions",
         "enabled": True,
-        "ruleType": "hide",
+        "ruleType": "show",
         "filterEtherealSocketed": False,
-        "equipmentCategory": ["sorce", "amazo", "palad", "necro", "druid", "barbh", "assas"]
-    })
-
-    # 8. HIDE all magic/rare/lowQ/normal/superior (catch-all for non-shown)
-    rules.append({
-        "name": "HIDE Magic/Rare/Normal/Inferior",
-        "enabled": True,
-        "ruleType": "hide",
-        "filterEtherealSocketed": False,
-        "equipmentRarity": ["magic", "rare", "lowQuality", "normal", "hiQuality"]
-    })
-
-    # 9. HIDE trash (gems/runes/keys/scrolls/tomes/ammo/potions/gold)
-    rules.append({
-        "name": "HIDE Trash & Consumables",
-        "enabled": True,
-        "ruleType": "hide",
-        "filterEtherealSocketed": False,
-        "equipmentItemCode": [
-            "gps", "opl", "gpl", "gpm", "opm", "ops",  # gems/pots
-        ],
-        "itemCategory": ["ammo", "gems", "runes", "scrlt", "keysr"],
-        "itemCode": [
-            "hp1", "hp2", "hp3", "hp4",
-            "mp1", "mp2", "mp3", "mp4",
-            "vps", "yps", "wms",
-            "tbk", "ibk", "tsc", "isc", "key",
-        ],
-        "goldFilterValue": 500
+        "itemCode": ["hp5", "mp5", "rvs", "rvl"]
     })
 
     char_name, old_filter_name = _get_profile()
