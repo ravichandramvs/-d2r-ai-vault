@@ -1,141 +1,143 @@
 # D2R Vault
 
-AI-powered item vault and loot filter manager for **Diablo II: Resurrected** — built for the [Reign of the Warlock (RotW)](https://www.nexusmods.com/diablo2resurrected/mods/381) mod but adaptable to vanilla D2R.
+AI-powered item vault, holy grail tracker, and smart loot filter for **Diablo II: Resurrected** — built for the [Reign of the Warlock (RotW)](https://www.nexusmods.com/diablo2resurrected/mods/381) mod but adaptable to vanilla D2R.
 
 ## What it does
 
-- **Item Parser** — Binary parser for D2R item DNA (hex). Handles RotW-specific quirks: 13-bit unique/set IDs, zero-bit marker stats, stat chaining for damage pairs, Huffman-encoded item codes.
-- **Vault Manager** — Scans your shared stash and character saves, stores every item's raw DNA in a JSON vault. Supports injecting items back into the stash with correct grid placement.
-- **Holy Grail Tracker** — Cross-references your vault against UniqueItems.txt and SetItems.txt to show found/missing items by tier.
-- **Smart Loot Filter** — Generates D2R `.fltr` files based on your grail progress. Hides found uniques/sets, shows only unfound ones. Uses the correct HIDE ALL + SHOW whitelist pattern.
-- **Build Ranker** — Scores vault items for a specific build (default: Echo Warlock). Ranks by slot with configurable stat weights.
+- **Item Parser** (`d2r_item_parser.py`) — Binary parser for D2R item DNA (hex). Handles RotW-specific quirks: 13-bit unique/set IDs, zero-bit marker stats, stat chaining, Huffman-encoded item codes. Maps DNA row indices to `*ID` values using the mod's data tables.
+- **Stash Manager** (`stash_manager.py`) — Scans shared stash (`.d2i`) and character (`.d2s`) saves, backs up every item's raw DNA to a JSON vault. Can wipe specific stash tabs. Supports item injection with grid placement (experimental).
+- **Holy Grail Tracker** (`loot_filter.py status`) — Tracks found/missing uniques and sets using two sources: the in-game chronicle (`C0EDEAC0` binary section) and the vault. Shows progress by tier.
+- **Smart Loot Filter** (`loot_filter.py apply`) — Generates D2R `.fltr` files based on vault contents. Hides found items, shows unfound uniques/sets, valuable elite bases, rare crafting gear, charms, and potions. Items in chronicle but not in vault still show so you can re-collect them.
+- **Build Ranker** (`build_ranker.py`) — Scores vault items for specific builds. Supports Echo Warlock (FCR/+skills/DS) and Act 2 Might Merc (LL/ED/IAS/CB) profiles.
 
 ## Setup
 
 ### Requirements
 
 - Python 3.8+
-- D2R installed with RotW mod (or vanilla D2R with minor adjustments)
-- GoMule D2R data tables (armor.txt, weapons.txt, etc.) — download from [GoMule D2R releases](https://github.com/pairofdocs/gomern/releases)
+- D2R installed with RotW mod (or vanilla D2R with adjustments)
+- RotW mod data tables are used automatically from `D2RMM.mpq/data/global/excel/`
 
 ### Configuration
 
-The tool auto-detects paths. If auto-detection fails, create `config_local.py`:
+Path auto-detection works out of the box for standard installs. Override with `config_local.py` if needed:
 
 ```python
 import os
-
 MOD_SAVE_DIR = r'C:\Users\YOU\Saved Games\Diablo II Resurrected\mods\YourMod'
-STASH_FILE = os.path.join(MOD_SAVE_DIR, 'SharedStashSoftCoreV2.d2i')
+STASH_FILE = os.path.join(MOD_SAVE_DIR, 'ModernSharedStashSoftCoreV2.d2i')
 CHAR_FILE = os.path.join(MOD_SAVE_DIR, 'YourCharacter.d2s')
-D2_DATA_DIR = r'C:\path\to\gomule\d2111'
-
-# These are derived from D2_DATA_DIR:
-ARMOR_TXT = os.path.join(D2_DATA_DIR, 'armor.txt')
-WEAPONS_TXT = os.path.join(D2_DATA_DIR, 'weapons.txt')
-MISC_TXT = os.path.join(D2_DATA_DIR, 'Misc.txt')
-UNIQUE_TXT = os.path.join(D2_DATA_DIR, 'UniqueItems.txt')
-SET_TXT = os.path.join(D2_DATA_DIR, 'SetItems.txt')
 ```
 
 ## Usage
 
-### Vault Management
+### Typical workflow after a play session
 
 ```bash
-# Scan stash + character for new items, update chronicle
-python stash_manager.py scan
+python stash_manager.py scan      # Back up stash items to vault
+python stash_manager.py wipe      # Clear shared stash tabs 1-5
+python loot_filter.py apply       # Regenerate + apply filter
+```
 
-# Show vault stats
-python stash_manager.py status
+### Stash Manager
 
-# Wipe shared stash tabs 1-5 (preserves materials/chronicle tabs)
-python stash_manager.py wipe
-
-# Inject specific vault items into stash by index
-python stash_manager.py inject 202 186 204
+```bash
+python stash_manager.py scan      # Scan stash + character, add new items to vault
+python stash_manager.py status    # Show vault stats
+python stash_manager.py wipe      # Wipe shared stash tabs 1-5 (keeps tabs 6-7)
+python stash_manager.py wipe 1,3  # Wipe only tabs 1 and 3
+python stash_manager.py inject 42 186 204  # Inject vault items into stash (experimental)
 ```
 
 ### Loot Filter
 
 ```bash
-# Show holy grail progress
-python loot_filter.py status
-
-# Generate optimized filter from vault grail data
-python loot_filter.py generate
-
-# Apply filter to game (creates backup first)
-python loot_filter.py apply
-
-# Reset to default starter filter
-python loot_filter.py reset
+python loot_filter.py status      # Show holy grail progress (chronicle vs vault)
+python loot_filter.py apply       # Generate filter from vault + apply to game
+python loot_filter.py generate    # Generate filter without applying
+python loot_filter.py reset       # Reset to default starter filter
 ```
 
 ### Item Analysis
 
 ```bash
-# Full vault scan with quality distribution
-python vault_scanner.py
-
-# Rank items for Echo Warlock build (top N per slot)
-python build_ranker.py 3
-
-# Test parser on first 30 items
-python d2r_item_parser.py
+python vault_scanner.py           # Full vault scan with quality breakdown
+python build_ranker.py 5          # Top 5 items per slot for Echo Warlock
+python build_ranker.py 5 merc     # Top 5 items per slot for Act 2 merc
+python d2r_item_parser.py         # Test parser on first 30 vault items
 ```
 
 ## How the Loot Filter Works
 
-D2R's filter engine has specific rules:
+### D2R filter engine rules
 
-1. **SHOW always beats HIDE** — if any SHOW rule matches an item, it's visible regardless of HIDE rules
-2. **Unmatched items are visible by default** — you need a catch-all HIDE rule
-3. **Fields within a rule are AND'd** — item must match ALL specified fields
+1. **SHOW always beats HIDE** — if any SHOW rule matches, item is visible
+2. **Unmatched items are visible by default** — only explicitly hidden items disappear
+3. **Fields within a rule are AND'd** — item must match ALL fields
 4. **Values within a field are OR'd** — `["unique", "set"]` matches either
+5. **`equipmentItemCode`** for ALL gear (including rings, amulets, jewels, charms) — `itemCode` is only for consumables (potions, scrolls)
 
-The correct pattern is:
+### Filter strategy
 
-```
-HIDE ALL (catch-all) → everything hidden
-SHOW rules → whitelist specific items through
-```
+The generated filter uses targeted HIDE + selective SHOW:
 
-This tool generates filters that:
-- **HIDE ALL** as the base layer (including gold via `goldFilterValue`)
-- **SHOW unfound uniques/sets** only for base codes with missing grail items
-- **SHOW socketed/ethereal** items (runeword bases)
-- **SHOW rare** rings, amulets, circlets, boots, jewels
-- **SHOW magic charms**
-- **SHOW** HP5, MP5, rejuvenation potions
+**HIDE rules:**
+- Found uniques/sets (by base code — only hidden when ALL uniques/sets for that code are in vault)
+- White/magic/rare items (broad catch-all)
+- Inferior gear, gold, gems, runes, ammo, scrolls, keys, weak potions
 
-As your grail progresses, re-run `generate` + `apply` to automatically shrink what's visible.
+**SHOW rules (override HIDE):**
+- Elite runeword bases (42 specific codes: Archon Plate, Monarch, Phase Blade, Thresher, etc.)
+- Elite socketed/ethereal items (same codes)
+- Rare gloves, boots, circlets (all tiers)
+- Rare rings, amulets, jewels
+- Magic/rare jewels
+- Magic charms (small/large/grand)
+- Good potions (HP5, MP5, full rejuv)
+- Quest items
+
+### Vault-based vs chronicle-based filtering
+
+The filter uses **vault contents** (not the in-game chronicle) to determine found/unfound. This means:
+- Items you found and sold/dropped (in chronicle but not vault) **still show** in the filter
+- Only items actually backed up to the vault are considered "found"
+- Re-running `apply` after `scan` updates the filter with your latest finds
 
 ## RotW-Specific Notes
 
-The item parser handles several RotW differences from vanilla D2R:
+The parser handles several RotW differences from vanilla D2R:
 
 - **13-bit unique/set IDs** (vanilla uses 12 bits)
+- **Row index to `*ID` mapping** — DNA stores row indices (including "Expansion" placeholder rows at index 129 for uniques, 62 for sets). The parser maps these to `*ID` values for correct chronicle matching.
 - **Zero-bit marker stat IDs** in ItemStatCost (read 9-bit ID only, no value bits)
 - **Stat chaining** for fire/light/cold/poison damage pairs
-- **Chronicle** system (`C0EDEAC0` signature) for stash discovery logging
-- **Modern Shared Stash** format with `55AA55AA` tab signatures
-- **Warlock class** (class index 7) — only `item_allskills` benefits Warlock from item stats
+- **Chronicle** (`C0EDEAC0`) — two sections: set IDs (first `set_count` entries), then unique IDs. Each entry is 10 bytes with item ID at bytes 6-7 (16-bit LE).
+- **Modern Shared Stash** (`.d2i`) — 7 tabs with `55AA55AA` signatures, 64-byte headers, tab size at offset 16-19 (4 bytes LE).
+- **`disableChronicle`** column — items like Warlord's Glory set (IDs 127-131) are excluded from grail tracking.
+- **Warlock class** (class index 7, skill IDs 373-402)
 
 ## File Structure
 
 ```
-d2r_item_parser.py   — Core binary item parser (Huffman, stats, quality)
-stash_manager.py     — Scan/wipe/inject items to/from vault
-loot_filter.py       — Holy grail tracker + smart loot filter generator
-vault_scanner.py     — Full vault analysis and reporting
-build_ranker.py      — Item ranking for specific builds
-item_names.py        — Lookup tables for item/unique/set names
-config.py            — Auto-detecting configuration
-config_local.py      — Your local path overrides (gitignored)
-PreciseModMap_v3.json — Stat ID → name/bits/offset mapping
-D2R_AI_Bank.json     — Your vault data (gitignored)
+d2r_item_parser.py      Core binary item parser (Huffman, stats, quality)
+stash_manager.py        Scan/wipe/inject items to/from vault
+loot_filter.py          Holy grail tracker + smart loot filter generator
+vault_scanner.py        Full vault analysis and reporting
+build_ranker.py         Item ranking for specific builds (warlock, merc)
+item_names.py           Lookup tables for item/unique/set names and slots
+config.py               Auto-detecting configuration (paths, signatures)
+config_local.py         Your local path overrides (gitignored)
+PreciseModMap_v3.json   Stat ID -> name/bits/offset mapping
+D2R_AI_Bank.json        Current vault data (gitignored)
+D2R_AI_Bank_Legacy.json Legacy GoMule/backup vault (gitignored)
 ```
+
+## Known Limitations
+
+- **Stat parser accuracy** — `PreciseModMap_v3.json` bit widths may not match RotW's `ItemStatCost.txt` for all stats. This affects build ranking scores but not item identification or grail tracking.
+- **Character stash clearing** — Cannot safely wipe character stash from `.d2s` files (requires recalculating checksums and item counts in the file header). Shared stash (`.d2i`) wipe works fine.
+- **Item injection** — Experimental. May corrupt the game save. Always creates backups before modifying files.
+- **Filter granularity** — D2R filters work by base item code, not specific unique/set ID. If two uniques share a base (e.g., two unique amulets), both show until all uniques for that base are found.
 
 ## Credits
 

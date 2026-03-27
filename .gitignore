@@ -1,6 +1,8 @@
 __pycache__/
 *.pyc
 *.bak
+*.stackdump
 D2R_AI_Bank.json
+D2R_AI_Bank_Legacy.json
 *.fltr
 config_local.py
