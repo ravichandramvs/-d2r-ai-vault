@@ -402,7 +402,7 @@ def generate_filter():
         "itemCategory": ["gems", "runes", "ammo", "scrlt", "keysr"],
     })
 
-    # 9. HIDE weak potions/books/keys
+    # 9. HIDE weak potions/books/keys/small rejuvs
     rules.append({
         "name": "HIDE Weak Potions/Books",
         "enabled": True,
@@ -412,6 +412,7 @@ def generate_filter():
             "tsc", "isc", "tbk", "ibk", "key", "luv",
             "hp1", "hp2", "hp3", "hp4",
             "mp1", "mp2", "mp3", "mp4",
+            "rvs",                       # small rejuv
             "vps", "yps", "wms",
         ],
     })
@@ -437,42 +438,34 @@ def generate_filter():
         "equipmentItemCode": ELITE_BASES,
     })
 
-    # 12. SHOW rare gloves, boots, circlets
+    # 12. SHOW rare gloves, boots, circlets (all tiers)
     rules.append({
         "name": "SHOW Rare Gear (gloves/boots/circlets)",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
         "equipmentRarity": ["rare"],
-        "equipmentItemCode": [
-            "ci0", "ci1", "ci2", "ci3",
-            "lbt", "vbt", "mbt", "tbt", "hbt",
-            "xlb", "xmb", "xtb", "xhb", "xvb",
-            "ulb", "umb", "utb", "uhb", "uvb",
-            "lgl", "vgl", "mgl", "tgl", "hgl",
-            "xlg", "xmg", "xtg", "xhg", "xvg",
-            "ulg", "umg", "utg", "uhg", "uvg",
-        ],
+        "equipmentCategory": ["glove", "boots", "circl"],
     })
 
-    # 13. SHOW rare jewelry (rings, amulets, jewels)
+    # 13. SHOW rare rings, amulets
     rules.append({
         "name": "SHOW Rare Jewelry",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
         "equipmentRarity": ["rare"],
-        "equipmentItemCode": ["rin", "amu", "jew"],
+        "equipmentCategory": ["rings", "amule"],
     })
 
-    # 14. SHOW magic/rare jewels (all jewels are worth checking)
+    # 14. SHOW magic/rare jewels
     rules.append({
         "name": "SHOW Jewels",
         "enabled": True,
         "ruleType": "show",
         "filterEtherealSocketed": False,
         "equipmentRarity": ["magic", "rare"],
-        "equipmentItemCode": ["jew"],
+        "equipmentCategory": ["jewel"],
     })
 
     # 15. SHOW magic charms
@@ -482,7 +475,7 @@ def generate_filter():
         "ruleType": "show",
         "filterEtherealSocketed": False,
         "equipmentRarity": ["magic"],
-        "equipmentItemCode": ["cm1", "cm2", "cm3"],
+        "equipmentCategory": ["charm"],
     })
 
     # 16. SHOW good potions
