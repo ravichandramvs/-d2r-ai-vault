@@ -15,26 +15,10 @@ _map_path = os.path.join(_dir, 'PreciseModMap_v3.json')
 with open(_map_path, 'r') as f:
     MOD_MAP = json.load(f)
 
-# --- Build row-index-to-*ID maps for unique/set tables ---
-# Item DNA stores row index (including "Expansion" placeholder rows),
-# but the game's chronicle and *ID column skip those rows.
-def _build_row_to_id_map(txt_path):
-    """Map row index -> *ID for a data table, handling Expansion rows."""
-    row_to_id = {}
-    if not os.path.exists(txt_path):
-        return row_to_id
-    with open(txt_path, 'r', encoding='utf-8-sig', errors='replace') as f:
-        for i, row in enumerate(csv.DictReader(f, delimiter='\t')):
-            star_id = row.get('*ID', '').strip()
-            if star_id:
-                row_to_id[i] = int(star_id)
-    return row_to_id
-
-_ROTW_DATA = os.path.join(
-    os.environ.get('ProgramFiles(x86)', r'C:\Program Files (x86)'),
-    'Diablo II Resurrected', 'mods', 'D2RMM', 'D2RMM.mpq', 'data', 'global', 'excel')
-_UNIQUE_ROW_TO_ID = _build_row_to_id_map(os.path.join(_ROTW_DATA, 'uniqueitems.txt'))
-_SET_ROW_TO_ID = _build_row_to_id_map(os.path.join(_ROTW_DATA, 'setitems.txt'))
+# DNA stores a 13-bit value for unique/set quality. RotW's uniqueitems.txt has
+# an inserted row mid-file (~row 126), so the raw value matches row index for
+# older items and (row index - 1) for newer items. item_names.resolve_unique_name
+# handles both cases by trying uid and uid+1 with a code-match fallback.
 
 # --- Huffman table (from dschu012/d2s) ---
 HUFFMAN_CHARS = {
@@ -280,8 +264,7 @@ def parse_item(hex_dna):
         r.read(11)  # prefix
         r.read(11)  # suffix
     elif quality == 5:
-        set_row = r.read(13)
-        set_id = _SET_ROW_TO_ID.get(set_row, set_row)
+        set_id = r.read(13)   # DNA stores *ID directly
     elif quality in (6, 8):
         r.read(8)
         r.read(8)
@@ -289,8 +272,7 @@ def parse_item(hex_dna):
             if r.read(1): r.read(11)
             if r.read(1): r.read(11)
     elif quality == 7:
-        unique_row = r.read(13)
-        unique_id = _UNIQUE_ROW_TO_ID.get(unique_row, unique_row)
+        unique_id = r.read(13)  # DNA stores *ID directly
 
     if flags['runeword']:
         r.read(12)
@@ -361,6 +343,7 @@ def parse_item(hex_dna):
     }
     if set_bonuses:
         result["set_bonuses"] = set_bonuses
+    result["_consumed_bits"] = r.pos
     return result
 
 

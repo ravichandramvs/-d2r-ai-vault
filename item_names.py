@@ -58,23 +58,72 @@ def load_code_info():
 
 
 def load_unique_names():
-    """Returns dict: row_index -> unique item name"""
-    names = {}
+    """Returns dict: row_index -> {'name': str, 'code': str}.
+    Stores the base code per row so lookup can verify uid against item code
+    (RotW inserted a row mid-file ~uid=126, causing off-by-one for ~58% of items)."""
+    rows = {}
     with open(UNIQUE_TXT, 'r', encoding='utf-8-sig', errors='replace') as f:
         for i, row in enumerate(csv.DictReader(f, delimiter='\t')):
             n = row.get('index','').strip()
-            if n: names[i] = n
-    return names
+            c = row.get('code','').strip()
+            if n: rows[i] = {'name': n, 'code': c}
+    return rows
 
 
 def load_set_names():
-    """Returns dict: row_index -> set item name"""
-    names = {}
+    """Returns dict: row_index -> {'name': str, 'code': str}."""
+    rows = {}
     with open(SET_TXT, 'r', encoding='utf-8-sig', errors='replace') as f:
         for i, row in enumerate(csv.DictReader(f, delimiter='\t')):
             n = row.get('index','').strip()
-            if n: names[i] = n
-    return names
+            c = (row.get('item','').strip() or row.get('code','').strip())
+            if n: rows[i] = {'name': n, 'code': c}
+    return rows
+
+
+def _resolve_unique(uid, code, unique_rows):
+    """Return the correct unique name by matching uid's code against item's code.
+    Tries uid first, then uid+1 (handles the row-insertion off-by-one)."""
+    if uid is None or not unique_rows:
+        return None
+    r = unique_rows.get(uid)
+    if r and r['code'] == code:
+        return r['name']
+    r1 = unique_rows.get(uid + 1)
+    if r1 and r1['code'] == code:
+        return r1['name']
+    # Fallback: try -1 too
+    rm = unique_rows.get(uid - 1)
+    if rm and rm['code'] == code:
+        return rm['name']
+    # Last resort: just return the uid-row name (may be wrong but at least
+    # not silently empty)
+    return r['name'] if r else None
+
+
+def _resolve_set(sid, code, set_rows):
+    if sid is None or not set_rows:
+        return None
+    r = set_rows.get(sid)
+    if r and r['code'] == code:
+        return r['name']
+    r1 = set_rows.get(sid + 1)
+    if r1 and r1['code'] == code:
+        return r1['name']
+    rm = set_rows.get(sid - 1)
+    if rm and rm['code'] == code:
+        return rm['name']
+    return r['name'] if r else None
+
+
+def resolve_unique_name(parsed, unique_rows):
+    """Public helper: get the correct unique name from a parsed item dict."""
+    return _resolve_unique(parsed.get('unique_id'), parsed.get('code'), unique_rows)
+
+
+def resolve_set_name(parsed, set_rows):
+    """Public helper: get the correct set name from a parsed item dict."""
+    return _resolve_set(parsed.get('set_id'), parsed.get('code'), set_rows)
 
 
 def get_item_label(parsed, code_info=None, unique_names=None, set_names=None):
@@ -88,10 +137,12 @@ def get_item_label(parsed, code_info=None, unique_names=None, set_names=None):
         base = code_info[code][0]
 
     if quality == 'Unique' and parsed.get('unique_id') is not None:
-        name = (unique_names or {}).get(parsed['unique_id'], f'UID{parsed["unique_id"]}')
+        name = _resolve_unique(parsed['unique_id'], code, unique_names or {}) \
+               or f'UID{parsed["unique_id"]}'
         return f'{eth}{name} ({base})'
     elif quality == 'Set' and parsed.get('set_id') is not None:
-        name = (set_names or {}).get(parsed['set_id'], f'SID{parsed["set_id"]}')
+        name = _resolve_set(parsed['set_id'], code, set_names or {}) \
+               or f'SID{parsed["set_id"]}'
         return f'{eth}{name} ({base})'
     else:
         return f'{eth}{quality} {base}'

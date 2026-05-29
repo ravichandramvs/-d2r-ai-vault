@@ -40,9 +40,42 @@ ITEM_SIZES = {
     'plt':(2,3),'fld':(2,3),'gth':(2,3),'ful':(2,3),
     'aar':(2,3),'ltp':(2,3),'qui':(2,3),
     'xrg':(2,3),'xpk':(2,4),'xlg':(2,2),'xlb':(2,2),
-    'xmg':(2,2),'zvb':(2,2),
+    'xmg':(2,2),
     'rin':(1,1),'amu':(1,1),'jew':(1,1),
     'cm1':(1,1),'cm2':(1,1),'cm3':(1,1),
+    # Exceptional/elite helms (2x2)
+    'xap':(2,2),'xkp':(2,2),'xlm':(2,2),'xhl':(2,2),
+    'xhm':(2,2),'xrn':(2,2),'xsk':(2,2),'xh9':(2,2),
+    'uap':(2,2),'ukp':(2,2),'ulm':(2,2),'uhl':(2,2),
+    'uhm':(2,2),'urn':(2,2),'usk':(2,2),'uh9':(2,2),
+    # Exceptional/elite body (2x3)
+    'xpl':(2,3),'xld':(2,3),'xrs':(2,3),'xui':(2,3),
+    'xea':(2,3),'xtu':(2,3),'xla':(2,3),'xhn':(2,3),
+    'upl':(2,3),'uld':(2,3),'urs':(2,3),'uui':(2,3),
+    'uea':(2,3),'utu':(2,3),'ula':(2,3),'uhn':(2,3),
+    'utp':(2,3),'uar':(2,3),'uth':(2,3),'ucl':(2,3),
+    # Exceptional/elite boots (2x2)
+    'xmb':(2,2),'xtb':(2,2),'xhb':(2,2),'umb':(2,2),
+    'utb':(2,2),'uhb':(2,2),
+    # Exceptional/elite gloves (2x2)
+    'xlg':(2,2),'xvg':(2,2),'xmg':(2,2),'xtg':(2,2),'xhg':(2,2),
+    'ulg':(2,2),'uvg':(2,2),'umg':(2,2),'utg':(2,2),'uhg':(2,2),
+    # Exceptional/elite belts (2x1)
+    'zvb':(2,1),'zmb':(2,1),'zlb':(2,1),'ztb':(2,1),'zhb':(2,1),
+    'ulc':(2,1),'utc':(2,1),'uhc':(2,1),
+    # Exceptional/elite weapons (mostly 2x3 or 2x4)
+    '7sr':(2,4),'7mp':(2,3),'7mt':(2,3),'7dg':(1,3),
+    '7m7':(2,4),'7gd':(2,4),'7cr':(2,3),'7gm':(2,4),
+    '7wa':(2,3),'7ws':(2,3),'7s8':(2,4),'7wc':(2,4),
+    '7pa':(2,4),'7h7':(2,4),'7vo':(2,4),'7tw':(1,3),
+    '6ws':(2,4),'7br':(2,3),'7st':(2,3),'7lw':(1,3),
+    # Exceptional/elite shields (2x3)
+    'uit':(2,3),'utr':(2,3),'uts':(2,3),'ush':(2,3),
+    'pab':(2,3),'paf':(2,3),'pae':(2,3),'pac':(2,3),
+    'pad':(2,3),'usl':(2,3),
+    # Other elites that might appear
+    'ci3':(2,2),  # Diadem
+    'baf':(2,2),'bae':(2,2),'drf':(2,2),'dre':(2,2),
 }
 
 
